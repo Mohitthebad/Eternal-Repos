@@ -20,10 +20,11 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     institutionName: '',
-    contactName: '',
+    contactPerson: '',
+    role: '',
     workEmail: '',
     phone: '',
-    preferredDate: '',
+    serviceRequired: 'Fleet Leasing Solutions',
     additionalRequirements: ''
   });
 
@@ -51,22 +52,11 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
             color: '#2C1810',
             fontWeight: 400,
             lineHeight: 1.15,
-            marginBottom: '20px',
+            marginBottom: '24px',
             maxWidth: '900px'
           }}>
-            A Higher Standard for Institutional Mobility.
+            A Higher Standard for Institutional Mobility
           </h1>
-
-          <p style={{
-            fontFamily: "'Cormorant Garamond', serif",
-            fontSize: '22px',
-            fontStyle: 'italic',
-            color: '#8B6914',
-            margin: '0 0 24px',
-            letterSpacing: '0.02em'
-          }}>
-            Designed for Operational Readiness.
-          </p>
 
           <p style={{
             fontFamily: "'Inter', sans-serif",
@@ -77,7 +67,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
             marginBottom: '40px',
             fontWeight: 300
           }}>
-            Eternal Repos partners with flagship multi-specialty hospitals, municipal corporations, diplomatic protocols, and religious trusts to deliver purpose-built ceremonial mobility under structured operational guarantees.
+            Purpose-built ceremonial mobility for organisations that value reliability, discretion, professional presentation and family experience.
           </p>
 
           <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginBottom: '60px' }}>
@@ -102,7 +92,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
               }}
             >
               <Download size={16} />
-              Download Institutional Dossier
+              Download Partnership Dossier
             </button>
 
             <button
@@ -140,7 +130,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
         </div>
       </section>
 
-      {/* 2. FOUR FULL-WIDTH SECTOR ROWS */}
+      {/* 2. SECTOR MODULES (4 Open Rows) */}
       <section style={{ padding: '140px 40px', backgroundColor: '#FDF8F0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           
@@ -149,35 +139,27 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
               SECTOR PARTNERSHIPS
             </span>
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(36px, 4.2vw, 54px)', color: '#2C1810', fontWeight: 400 }}>
-              Tailored Partnership Models
+              Tailored Sector Solutions
             </h2>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
             {[
               {
-                num: '01',
-                sector: 'Flagship Hospitals',
-                title: 'Discharge-to-Sanctuary Mobility',
-                desc: 'Providing premier healthcare networks with dignified final transport that reinforces institutional care and supports grieving families.'
+                sector: 'Hospitals',
+                desc: 'Extend compassionate care through a dignified and professionally coordinated departure experience.'
               },
               {
-                num: '02',
                 sector: 'Funeral Service Providers',
-                title: 'Fleet Capability Expansion',
-                desc: 'Expanding operational reach for funeral managers through turnkey vehicle leasing and white-glove driver support.'
+                desc: 'Strengthen service quality through purpose-built ceremonial mobility.'
               },
               {
-                num: '03',
-                sector: 'Municipal Bodies & Civic Trusts',
-                title: 'Fleet Modernization Programs',
-                desc: 'Replacing legacy transport infrastructure with purpose-built, hygienic, and dignified ceremonial suites.'
+                sector: 'Municipal Organisations',
+                desc: 'Support public funeral mobility through dependable, scalable and professional vehicle solutions.'
               },
               {
-                num: '04',
                 sector: 'Religious Trusts & NGOs',
-                title: 'Custom Rites Integration',
-                desc: 'Customizing vehicle features and floral mounts to respect specific sacred traditions and community requirements.'
+                desc: 'Enable communities to serve families with consistency, dignity and respect for tradition.'
               }
             ].map((item, idx) => (
               <div
@@ -186,23 +168,15 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
                   padding: '36px 0',
                   borderTop: '1px solid rgba(139, 105, 20, 0.25)',
                   display: 'grid',
-                  gridTemplateColumns: '80px 1fr 2fr',
+                  gridTemplateColumns: '1.2fr 2fr',
                   gap: '32px',
                   alignItems: 'baseline'
                 }}
               >
-                <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '28px', color: '#8B6914', fontWeight: 600 }}>
-                  {item.num}
-                </span>
-                <div>
-                  <span style={{ fontSize: '11px', letterSpacing: '0.18em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '6px' }}>
-                    {item.sector}
-                  </span>
-                  <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '26px', color: '#2C1810', margin: 0, fontWeight: 500 }}>
-                    {item.title}
-                  </h3>
-                </div>
-                <p style={{ fontSize: '16px', color: '#5C4E43', lineHeight: 1.8, margin: 0, fontWeight: 300 }}>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '28px', color: '#2C1810', margin: 0, fontWeight: 500 }}>
+                  {item.sector}
+                </h3>
+                <p style={{ fontSize: '16.5px', color: '#5C4E43', lineHeight: 1.8, margin: 0, fontWeight: 300 }}>
                   {item.desc}
                 </p>
               </div>
@@ -212,7 +186,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
         </div>
       </section>
 
-      {/* 3. DARK STANDARDS SECTION (Verifiable operational commitments) */}
+      {/* 3. DARK STANDARDS SECTION (4 Standards) */}
       <section style={{
         padding: '140px 40px',
         backgroundColor: '#2A140D',
@@ -222,10 +196,10 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
           
           <div style={{ textAlign: 'center', marginBottom: '70px' }}>
             <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '12px' }}>
-              OPERATIONAL COMMITMENTS
+              OPERATIONAL STANDARDS
             </span>
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(36px, 4.5vw, 54px)', color: '#FDF8F0', fontWeight: 400 }}>
-              Documented Institutional Standards
+              The Operational Record
             </h2>
           </div>
 
@@ -235,10 +209,10 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
             gap: '40px'
           }}>
             {[
-              { title: 'Defined Dispatch Protocols', desc: 'Structured dispatch workflows with direct priority phone and email communication channels.' },
-              { title: 'Dedicated Institutional Coordination', desc: 'Single point of contact for hospital administration, emergency response, and family liaison.' },
-              { title: 'Preventive Fleet Maintenance', desc: 'Continuous mechanical inspections and structured maintenance schedules ensuring vehicle readiness.' },
-              { title: 'Documented Hygiene Standards', desc: 'Hospital-grade UV-C sterilization and antimicrobial surface sanitization protocols.' }
+              { title: 'Operational Readiness', desc: 'Structured maintenance schedules and continuous fleet care ensuring high vehicle availability.' },
+              { title: 'Professional Presentation', desc: 'Uniformed personnel trained in discreet protocol and institutional etiquette.' },
+              { title: 'Hygiene Protocols', desc: 'Hospital-grade UV-C sterilization and antimicrobial surface sanitization protocols.' },
+              { title: 'Dedicated Coordination', desc: 'Single point of contact for hospital administration, emergency response, and family liaison.' }
             ].map((std, i) => (
               <div key={i} style={{ borderTop: '1px solid rgba(139, 105, 20, 0.4)', paddingTop: '24px' }}>
                 <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '24px', color: '#FDF8F0', marginBottom: '12px', fontWeight: 500 }}>
@@ -254,7 +228,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
         </div>
       </section>
 
-      {/* 4. SHORT DEMONSTRATION FORM WITH OPTIONAL NOTE FIELD */}
+      {/* 4. DEMONSTRATION FORM (Matching Master Prompt Spec) */}
       <section style={{ padding: '140px 40px', backgroundColor: '#FDF8F0' }}>
         <div style={{ maxWidth: '720px', margin: '0 auto' }}>
           
@@ -265,9 +239,6 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(34px, 4vw, 48px)', color: '#2C1810', fontWeight: 400 }}>
               Request an On-Site Demonstration
             </h2>
-            <p style={{ fontSize: '16px', color: '#5C4E43', lineHeight: 1.7, marginTop: '12px', fontWeight: 300 }}>
-              Inspect the ceremonial vehicle and discuss custom institutional leasing models.
-            </p>
           </div>
 
           {formSubmitted ? (
@@ -283,7 +254,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
                 Demonstration Requested
               </h3>
               <p style={{ fontSize: '16px', color: '#5C4E43', lineHeight: 1.7, margin: 0 }}>
-                Our institutional protocol team will contact you shortly to confirm your requested date and briefing details.
+                Our institutional protocol team will contact you shortly to confirm your briefing details.
               </p>
             </div>
           ) : (
@@ -323,14 +294,14 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                 <div>
                   <label style={{ fontSize: '12px', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#8B6914', fontWeight: 600, display: 'block', marginBottom: '8px' }}>
-                    Contact Name
+                    Contact Person
                   </label>
                   <input
                     required
                     type="text"
                     placeholder="Full name"
-                    value={formData.contactName}
-                    onChange={e => setFormData({ ...formData, contactName: e.target.value })}
+                    value={formData.contactPerson}
+                    onChange={e => setFormData({ ...formData, contactPerson: e.target.value })}
                     style={{
                       width: '100%',
                       padding: '14px 18px',
@@ -344,6 +315,31 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
                   />
                 </div>
 
+                <div>
+                  <label style={{ fontSize: '12px', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#8B6914', fontWeight: 600, display: 'block', marginBottom: '8px' }}>
+                    Role / Title
+                  </label>
+                  <input
+                    required
+                    type="text"
+                    placeholder="e.g. Director of Operations / Administrator"
+                    value={formData.role}
+                    onChange={e => setFormData({ ...formData, role: e.target.value })}
+                    style={{
+                      width: '100%',
+                      padding: '14px 18px',
+                      borderRadius: '8px',
+                      border: '1px solid rgba(139, 105, 20, 0.3)',
+                      backgroundColor: '#FDF8F0',
+                      fontSize: '15px',
+                      color: '#2C1810',
+                      outline: 'none'
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                 <div>
                   <label style={{ fontSize: '12px', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#8B6914', fontWeight: 600, display: 'block', marginBottom: '8px' }}>
                     Work Email
@@ -366,9 +362,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
                     }}
                   />
                 </div>
-              </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                 <div>
                   <label style={{ fontSize: '12px', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#8B6914', fontWeight: 600, display: 'block', marginBottom: '8px' }}>
                     Phone Number
@@ -391,28 +385,33 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
                     }}
                   />
                 </div>
+              </div>
 
-                <div>
-                  <label style={{ fontSize: '12px', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#8B6914', fontWeight: 600, display: 'block', marginBottom: '8px' }}>
-                    Preferred Date
-                  </label>
-                  <input
-                    required
-                    type="date"
-                    value={formData.preferredDate}
-                    onChange={e => setFormData({ ...formData, preferredDate: e.target.value })}
-                    style={{
-                      width: '100%',
-                      padding: '14px 18px',
-                      borderRadius: '8px',
-                      border: '1px solid rgba(139, 105, 20, 0.3)',
-                      backgroundColor: '#FDF8F0',
-                      fontSize: '15px',
-                      color: '#2C1810',
-                      outline: 'none'
-                    }}
-                  />
-                </div>
+              <div>
+                <label style={{ fontSize: '12px', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#8B6914', fontWeight: 600, display: 'block', marginBottom: '8px' }}>
+                  Service Required
+                </label>
+                <select
+                  value={formData.serviceRequired}
+                  onChange={e => setFormData({ ...formData, serviceRequired: e.target.value })}
+                  style={{
+                    width: '100%',
+                    padding: '14px 18px',
+                    borderRadius: '8px',
+                    border: '1px solid rgba(139, 105, 20, 0.3)',
+                    backgroundColor: '#FDF8F0',
+                    fontSize: '15px',
+                    color: '#2C1810',
+                    outline: 'none'
+                  }}
+                >
+                  <option value="Fleet Leasing Solutions">Fleet Leasing Solutions</option>
+                  <option value="Ceremonial Vehicle Fabrication">Ceremonial Vehicle Fabrication</option>
+                  <option value="Fleet Maintenance & AMC">Fleet Maintenance & AMC</option>
+                  <option value="Mortuary Cooling Solutions">Mortuary Cooling Solutions</option>
+                  <option value="Branding & Customisation">Branding & Customisation</option>
+                  <option value="Hygiene & Sanitisation">Hygiene & Sanitisation</option>
+                </select>
               </div>
 
               <div>
@@ -421,7 +420,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
                 </label>
                 <textarea
                   rows={3}
-                  placeholder="Fleet size, location notes, or specific briefing requests..."
+                  placeholder="Fleet size, preferred demonstration dates, or specific briefing notes..."
                   value={formData.additionalRequirements}
                   onChange={e => setFormData({ ...formData, additionalRequirements: e.target.value })}
                   style={{

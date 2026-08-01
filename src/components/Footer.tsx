@@ -33,11 +33,11 @@ export const Footer: React.FC<FooterProps> = ({ activeTab, setActiveTab, openCon
       }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 30px' }}>
           
-          {/* Main Footer Grid */}
+          {/* Main Footer Grid: 4 Columns */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: '2fr 1fr 1fr',
-            gap: '40px',
+            gridTemplateColumns: '1.8fr 1fr 1fr 1fr',
+            gap: '36px',
             marginBottom: '32px'
           }}>
             {/* Brand Column */}
@@ -47,7 +47,7 @@ export const Footer: React.FC<FooterProps> = ({ activeTab, setActiveTab, openCon
                   src="/images/logo.png" 
                   alt="Eternal Repos" 
                   style={{
-                    height: '68px',
+                    height: '64px',
                     width: 'auto',
                     objectFit: 'contain',
                     display: 'block'
@@ -57,8 +57,8 @@ export const Footer: React.FC<FooterProps> = ({ activeTab, setActiveTab, openCon
 
               <p style={{
                 color: subtextColor,
-                fontSize: '14px',
-                maxWidth: '380px',
+                fontSize: '13.5px',
+                maxWidth: '340px',
                 lineHeight: 1.6,
                 fontWeight: 300,
                 margin: 0
@@ -79,17 +79,17 @@ export const Footer: React.FC<FooterProps> = ({ activeTab, setActiveTab, openCon
               
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {[
+                  { id: 'about', label: 'About' },
                   { id: 'vehicle', label: 'Vehicle' },
                   { id: 'services', label: 'Services' },
                   { id: 'institutions', label: 'Institutions' },
-                  { id: 'contact', label: 'Contact' },
                 ].map(link => (
                   <li key={link.id}>
                     <button
                       onClick={() => handleNav(link.id)}
                       style={{
                         color: subtextColor,
-                        fontSize: '14px',
+                        fontSize: '13.5px',
                         fontWeight: 300,
                         background: 'none',
                         border: 'none',
@@ -101,6 +101,58 @@ export const Footer: React.FC<FooterProps> = ({ activeTab, setActiveTab, openCon
                     </button>
                   </li>
                 ))}
+              </ul>
+            </div>
+
+            {/* DISCOVER */}
+            <div>
+              <h4 style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontSize: '18px',
+                color: '#8B6914',
+                marginBottom: '14px',
+                fontWeight: 500
+              }}>Discover</h4>
+
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                {[
+                  { id: 'gallery', label: 'Gallery' },
+                  { id: 'insights', label: 'Insights' },
+                  { id: 'contact', label: 'Contact' },
+                ].map(link => (
+                  <li key={link.id}>
+                    <button
+                      onClick={() => handleNav(link.id)}
+                      style={{
+                        color: subtextColor,
+                        fontSize: '13.5px',
+                        fontWeight: 300,
+                        background: 'none',
+                        border: 'none',
+                        cursor: 'pointer',
+                        padding: 0
+                      }}
+                    >
+                      {link.label}
+                    </button>
+                  </li>
+                ))}
+                <li>
+                  <button
+                    onClick={openConciergeModal}
+                    style={{
+                      color: '#8B6914',
+                      fontSize: '13.5px',
+                      fontWeight: 500,
+                      background: 'none',
+                      border: 'none',
+                      cursor: 'pointer',
+                      padding: 0
+                    }}
+                  >
+                    Request a Demonstration
+                  </button>
+                </li>
               </ul>
             </div>
 
@@ -116,30 +168,30 @@ export const Footer: React.FC<FooterProps> = ({ activeTab, setActiveTab, openCon
 
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <li>
-                  <a href="tel:+919876543210" style={{ color: subtextColor, fontSize: '14px', textDecoration: 'none', fontWeight: 300 }}>
-                    +91 98765 43210
-                  </a>
-                </li>
-                <li>
-                  <a href="mailto:concierge@eternalrepos.com" style={{ color: subtextColor, fontSize: '14px', textDecoration: 'none', fontWeight: 300 }}>
-                    concierge@eternalrepos.com
-                  </a>
-                </li>
-                <li>
-                  <a href="https://linkedin.com" target="_blank" rel="noreferrer" style={{ color: subtextColor, fontSize: '14px', textDecoration: 'none', fontWeight: 300 }}>
+                  <a href="https://linkedin.com" target="_blank" rel="noreferrer" style={{ color: subtextColor, fontSize: '13.5px', textDecoration: 'none', fontWeight: 300 }}>
                     LinkedIn
                   </a>
                 </li>
                 <li>
-                  <a href="https://instagram.com" target="_blank" rel="noreferrer" style={{ color: subtextColor, fontSize: '14px', textDecoration: 'none', fontWeight: 300 }}>
+                  <a href="https://instagram.com" target="_blank" rel="noreferrer" style={{ color: subtextColor, fontSize: '13.5px', textDecoration: 'none', fontWeight: 300 }}>
                     Instagram
+                  </a>
+                </li>
+                <li>
+                  <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" style={{ color: subtextColor, fontSize: '13.5px', textDecoration: 'none', fontWeight: 300 }}>
+                    WhatsApp Business
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:concierge@eternalrepos.com" style={{ color: subtextColor, fontSize: '13.5px', textDecoration: 'none', fontWeight: 300 }}>
+                    Email Concierge
                   </a>
                 </li>
               </ul>
             </div>
           </div>
 
-          {/* FINAL ROW */}
+          {/* LEGAL ROW */}
           <div style={{
             borderTop: `1px solid ${borderColor}`,
             paddingTop: '20px',
@@ -153,7 +205,7 @@ export const Footer: React.FC<FooterProps> = ({ activeTab, setActiveTab, openCon
             fontWeight: 300
           }}>
             <div>
-              © 2026 Eternal Repos · Privacy · Terms
+              © 2026 Azimuth Business on Wheels · Privacy Policy · Terms of Use
             </div>
           </div>
 

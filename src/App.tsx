@@ -10,6 +10,7 @@ import { VehicleView } from './views/VehicleView';
 import { ServicesView } from './views/ServicesView';
 import { InstitutionsView } from './views/InstitutionsView';
 import { GalleryView } from './views/GalleryView';
+import { InsightsView } from './views/InsightsView';
 import { ContactView } from './views/ContactView';
 
 function App() {
@@ -72,6 +73,8 @@ function App() {
         );
       case 'gallery':
         return <GalleryView />;
+      case 'insights':
+        return <InsightsView openConciergeModal={openConciergeModal} />;
       case 'contact':
         return <ContactView />;
       default:

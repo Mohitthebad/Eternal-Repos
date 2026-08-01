@@ -24,13 +24,13 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, openCon
   }, []);
 
   const navLinks = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About Us' },
+    { id: 'about', label: 'About' },
     { id: 'vehicle', label: 'Our Vehicle' },
     { id: 'services', label: 'Services' },
-    { id: 'institutions', label: 'For Institutions' },
+    { id: 'institutions', label: 'Institutions' },
     { id: 'gallery', label: 'Gallery' },
-    { id: 'contact', label: 'Contact Us' },
+    { id: 'insights', label: 'Insights' },
+    { id: 'contact', label: 'Contact' },
   ];
 
   const handleNavClick = (id: string) => {
