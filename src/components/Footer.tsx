@@ -20,8 +20,6 @@ export const Footer: React.FC<FooterProps> = ({ activeTab, setActiveTab, openCon
   const subtextColor = isDarkTheme ? '#D9CBBE' : '#736458';
   const borderColor = isDarkTheme ? 'rgba(139, 105, 20, 0.3)' : 'rgba(139, 105, 20, 0.2)';
   const dividerColor = isDarkTheme ? 'rgba(212, 175, 55, 0.15)' : 'rgba(139, 105, 20, 0.15)';
-  const logoBg = isDarkTheme ? '#FDF8F0' : '#FFFFFF';
-  const logoBorder = isDarkTheme ? 'rgba(139, 105, 20, 0.4)' : 'rgba(139, 105, 20, 0.25)';
   const badgeBg = isDarkTheme ? 'rgba(139, 105, 20, 0.12)' : 'rgba(139, 105, 20, 0.08)';
 
   return (

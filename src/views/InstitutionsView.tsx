@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Building2, CheckCircle2, Download } from 'lucide-react';
+import { CheckCircle2, Download } from 'lucide-react';
 
 interface InstitutionsViewProps {
   openConciergeModal: () => void;

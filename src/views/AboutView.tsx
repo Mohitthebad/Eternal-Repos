@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import { Compass, Target, ShieldCheck, Award, Users, AlertTriangle, CheckCircle2 } from 'lucide-react';
+import { Compass, Target, ShieldCheck, Users, AlertTriangle, CheckCircle2 } from 'lucide-react';
 
 interface AboutViewProps {
-  openConciergeModal: () => void;
+  openConciergeModal?: () => void;
 }
 
-export const AboutView: React.FC<AboutViewProps> = ({ openConciergeModal }) => {
+export const AboutView: React.FC<AboutViewProps> = () => {
 
   // #6 + #12 + #19 Observers
   useEffect(() => {
