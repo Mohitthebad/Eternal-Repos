@@ -1,0 +1,714 @@
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { ArrowRight, VolumeX, Sparkle, Building2 } from 'lucide-react';
+
+interface HomeViewProps {
+  setActiveTab: (tab: string) => void;
+  openConciergeModal: () => void;
+  openBrochureModal: () => void;
+}
+
+// #16 Split letters helper
+const SplitLetters: React.FC<{ text: string; baseDelay?: number }> = ({ text, baseDelay = 0 }) => (
+  <>
+    {text.split('').map((ch, i) => (
+      <span key={i} className="split-letter" style={{ animationDelay: `${baseDelay + i * 0.04}s` }}>
+        {ch === ' ' ? '\u00A0' : ch}
+      </span>
+    ))}
+  </>
+);
+
+const MORPH_WORDS = ['Dignity.', 'Grace.', 'Reverence.', 'Honour.'];
+const TYPEWRITER_PHRASES = [
+  'From Transport to Tribute.',
+  "India's Premier Ceremonial Hearse.",
+  'Silent Sanctuary for the Final Journey.',
+];
+
+export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeModal }) => {
+  // #20 Morphing text
+  const [morphIdx, setMorphIdx] = useState(0);
+  const [morphClass, setMorphClass] = useState('morph-word-in');
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMorphClass('morph-word-out');
+      setTimeout(() => { setMorphIdx(i => (i + 1) % MORPH_WORDS.length); setMorphClass('morph-word-in'); }, 450);
+    }, 2800);
+    return () => clearInterval(interval);
+  }, []);
+
+  // #17 Typewriter
+  const [typeText, setTypeText] = useState('');
+  const [phraseIdx, setPhraseIdx] = useState(0);
+  const [typing, setTyping] = useState(true);
+  useEffect(() => {
+    const phrase = TYPEWRITER_PHRASES[phraseIdx];
+    let t: ReturnType<typeof setTimeout>;
+    if (typing) {
+      if (typeText.length < phrase.length) t = setTimeout(() => setTypeText(phrase.slice(0, typeText.length + 1)), 55);
+      else t = setTimeout(() => setTyping(false), 1800);
+    } else {
+      if (typeText.length > 0) t = setTimeout(() => setTypeText(typeText.slice(0, -1)), 28);
+      else { setPhraseIdx(i => (i + 1) % TYPEWRITER_PHRASES.length); setTyping(true); }
+    }
+    return () => clearTimeout(t);
+  }, [typeText, typing, phraseIdx]);
+
+  // #7 Parallax
+  const [scrollY, setScrollY] = useState(0);
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // #5 Magnetic button
+  const magnetRef = useRef<HTMLButtonElement>(null);
+  const handleMagnet = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+    const btn = magnetRef.current; if (!btn) return;
+    const rect = btn.getBoundingClientRect();
+    const dx = (e.clientX - rect.left - rect.width / 2) * 0.35;
+    const dy = (e.clientY - rect.top - rect.height / 2) * 0.35;
+    btn.style.transform = `translate(${dx}px, ${dy}px)`;
+  }, []);
+  const handleMagnetLeave = useCallback(() => { if (magnetRef.current) magnetRef.current.style.transform = 'translate(0,0)'; }, []);
+
+  // #6 Scroll reveal
+  useEffect(() => {
+    const els = document.querySelectorAll('.scroll-reveal');
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } }),
+      { threshold: 0.12 }
+    );
+    els.forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div className="animate-fade-in" style={{ color: '#2C1810' }}>
+      
+      {/* ==========================================
+          1 · EDITORIAL HERO SECTION (Elevated India Style)
+         ========================================== */}
+      {/* #7 Parallax bg orbs */}
+      <section style={{ position: 'relative', minHeight: '88vh', background: 'radial-gradient(140% 120% at 20% 20%, #FDF8F0 0%, #F8F3EA 50%, #EFE6D8 100%)', color: '#2C1810', display: 'flex', alignItems: 'center', padding: '80px 40px', overflow: 'hidden', borderBottom: '1px solid rgba(44, 24, 16, 0.08)' }}>
+        <div style={{ position: 'absolute', top: `calc(10% + ${scrollY * 0.2}px)`, right: '-10%', width: '600px', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(139,105,20,0.10) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: `calc(5% - ${scrollY * 0.15}px)`, left: '-5%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(212,175,55,0.07) 0%, transparent 65%)', pointerEvents: 'none' }} />
+        <div style={{
+          maxWidth: '1380px',
+          margin: '0 auto',
+          width: '100%',
+          display: 'grid',
+          gridTemplateColumns: '40% 60%',
+          gap: '50px',
+          alignItems: 'center'
+        }} className="hero-split-grid">
+          
+          {/* Left Column (40%): Brand Messaging & CTAs */}
+          <div style={{
+            zIndex: 10,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'flex-start',
+            paddingRight: '16px'
+          }}>
+            {/* Eyebrow text */}
+            <div style={{ fontSize: '11px', letterSpacing: '0.22em', textTransform: 'uppercase', color: '#8B6914', fontWeight: 600, marginBottom: '24px' }}>
+              PURPOSE-BUILT CEREMONIAL MOBILITY · DELHI NCR
+            </div>
+
+            {/* #16 Split-Letter + #20 Morphing Headline */}
+            <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(36px, 3.8vw, 56px)', fontWeight: 400, lineHeight: 1.15, letterSpacing: '-0.01em', color: '#2C1810', marginBottom: '16px', perspective: '600px' }}>
+              <SplitLetters text="Every Final Journey" baseDelay={0.1} /><br />
+              <span>Deserves </span>
+              <span className={morphClass} style={{ color: '#8B6914', fontStyle: 'italic', display: 'inline-block', minWidth: '140px' }}>
+                {MORPH_WORDS[morphIdx]}
+              </span>
+            </h1>
+
+            {/* Supporting Copy */}
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', lineHeight: 1.8, color: '#2C1810', opacity: 0.9, maxWidth: '480px', marginBottom: '24px', fontWeight: 400 }}>
+              We believe the final journey deserves the same thoughtfulness, dignity, and care that we extend to every meaningful moment in life.
+            </p>
+
+            {/* #17 Typewriter Brand Line */}
+            <p className="pull-quote" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '20px', fontStyle: 'italic', color: '#8B6914', marginBottom: '36px', letterSpacing: '0.03em', minHeight: '30px' }}>
+              {typeText}<span className="typewriter-cursor" />
+            </p>
+
+            {/* Calls to Action */}
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '24px',
+              flexWrap: 'wrap',
+              marginBottom: '32px'
+            }}>
+              {/* #5 Magnetic Primary CTA */}
+              <button
+                ref={magnetRef}
+                onClick={() => setActiveTab('vehicle')}
+                className="magnetic-btn"
+                onMouseMove={handleMagnet}
+                onMouseLeave={handleMagnetLeave}
+                style={{ backgroundColor: '#8B6914', color: '#2C1810', padding: '13px 30px', borderRadius: '30px', fontFamily: "'Inter', sans-serif", fontSize: '13px', letterSpacing: '0.08em', fontWeight: 600, textTransform: 'uppercase', border: '1px solid #8B6914', display: 'inline-flex', alignItems: 'center', gap: '8px', cursor: 'pointer', boxShadow: '0 6px 18px rgba(139, 105, 20, 0.2)' }}
+              >
+                <span>Explore the Vehicle</span>
+                <ArrowRight size={15} color="#2C1810" />
+              </button>
+
+              {/* Secondary CTA */}
+              <button
+                onClick={openConciergeModal}
+                style={{
+                  backgroundColor: 'transparent',
+                  color: '#2C1810',
+                  padding: '12px 4px',
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: '13px',
+                  letterSpacing: '0.08em',
+                  fontWeight: 500,
+                  textTransform: 'uppercase',
+                  border: 'none',
+                  borderBottom: '1px solid rgba(44, 24, 16, 0.35)',
+                  borderRadius: '0',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderBottomColor = '#8B6914';
+                  e.currentTarget.style.color = '#8B6914';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderBottomColor = 'rgba(44, 24, 16, 0.35)';
+                  e.currentTarget.style.color = '#2C1810';
+                }}
+              >
+                Discuss a Partnership
+              </button>
+            </div>
+
+            {/* Subtle Trust Line */}
+            <div style={{
+              fontSize: '10px',
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: '#7A6855',
+              fontWeight: 500,
+              opacity: 0.85
+            }}>
+              Designed in India · Institution Ready · Serving Delhi NCR
+            </div>
+          </div>
+
+          {/* Right Column — #11 Ken Burns + #7 Parallax foreground */}
+          <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%' }}>
+            <div style={{ position: 'relative', width: '100%', borderRadius: '6px', overflow: 'hidden', boxShadow: '0 30px 70px -15px rgba(44, 24, 16, 0.15)', border: '1px solid rgba(139, 105, 20, 0.15)', backgroundColor: '#FFFFFF', transform: 'scale(1.04)', marginTop: `${scrollY * -0.08}px` }}>
+              <img src="/images/vehicle_view_front_34.png" alt="Eternal Repos Purpose-Built Ceremonial Hearse" className="ken-burns"
+                style={{ width: '100%', height: 'auto', maxHeight: '660px', objectFit: 'cover', display: 'block' }} />
+            </div>
+          </div>
+
+        </div>
+
+        {/* Responsive Grid CSS */}
+        <style>{`
+          @media (max-width: 1024px) {
+            .hero-split-grid {
+              grid-template-columns: 1fr !important;
+              gap: 48px !important;
+            }
+          }
+        `}</style>
+      </section>
+
+      {/* ==========================================
+          2 · BRAND PROMISE BAND (Elevated India Style: 3 Columns)
+         ========================================== */}
+      <section style={{
+        backgroundColor: '#F5EFE6',
+        padding: '60px 40px',
+        borderTop: '1px solid rgba(139, 105, 20, 0.2)',
+        borderBottom: '1px solid rgba(139, 105, 20, 0.2)'
+      }}>
+        <div style={{ maxWidth: '1350px', margin: '0 auto' }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr auto 1fr auto 1fr',
+            alignItems: 'center',
+            gap: '32px'
+          }} className="responsive-grid">
+            
+            {/* Promise 1 */}
+            <div style={{ textAlign: 'center', padding: '0 16px' }}>
+              <div style={{
+                width: '50px',
+                height: '50px',
+                borderRadius: '50%',
+                border: '1px solid #8B6914',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 20px',
+                color: '#8B6914'
+              }}>
+                <VolumeX size={22} />
+              </div>
+              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '24px', color: '#2C1810', marginBottom: '10px', fontWeight: 500 }}>
+                Silent Sanctuary Luxury
+              </h3>
+              <p style={{ fontSize: '15px', color: '#736458', lineHeight: 1.7, maxWidth: '360px', margin: '0 auto' }}>
+                Acoustic-insulated glass chambers, warm twilight illumination, and climate-controlled calm — free of engine noise and medical starkness.
+              </p>
+            </div>
+
+            {/* Divider 1 */}
+            <div style={{ width: '1px', height: '100px', backgroundColor: 'rgba(139, 105, 20, 0.2)' }} className="hidden-mobile" />
+
+            {/* Promise 2 */}
+            <div style={{ textAlign: 'center', padding: '0 16px' }}>
+              <div style={{
+                width: '50px',
+                height: '50px',
+                borderRadius: '50%',
+                border: '1px solid #8B6914',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 20px',
+                color: '#8B6914'
+              }}>
+                <Sparkle size={22} />
+              </div>
+              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '24px', color: '#2C1810', marginBottom: '10px', fontWeight: 500 }}>
+                Curated Ceremonial Dignity
+              </h3>
+              <p style={{ fontSize: '15px', color: '#736458', lineHeight: 1.7, maxWidth: '360px', margin: '0 auto' }}>
+                Patented whisper-quiet hydraulic bier, electrochromic smart privacy glass, and champagne gold floral anchor points for formal tribute.
+              </p>
+            </div>
+
+            {/* Divider 2 */}
+            <div style={{ width: '1px', height: '100px', backgroundColor: 'rgba(139, 105, 20, 0.2)' }} className="hidden-mobile" />
+
+            {/* Promise 3 */}
+            <div style={{ textAlign: 'center', padding: '0 16px' }}>
+              <div style={{
+                width: '50px',
+                height: '50px',
+                borderRadius: '50%',
+                border: '1px solid #8B6914',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 20px',
+                color: '#8B6914'
+              }}>
+                <Building2 size={22} />
+              </div>
+              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '24px', color: '#2C1810', marginBottom: '10px', fontWeight: 500 }}>
+                Institutional Discretion
+              </h3>
+              <p style={{ fontSize: '15px', color: '#736458', lineHeight: 1.7, maxWidth: '360px', margin: '0 auto' }}>
+                Turnkey fleet leasing for flagship hospital networks and municipal bodies — backed by zero-failure SLA and 24/7 dedicated concierge protocol.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ==========================================
+          3 · EDITORIAL STATEMENT / PHILOSOPHY QUOTE
+         ========================================== */}
+      <section style={{
+        padding: '90px 40px',
+        backgroundColor: '#2C1810',
+        color: '#FDF8F0',
+        textAlign: 'center',
+        position: 'relative'
+      }}>
+          <div style={{ maxWidth: '960px', margin: '0 auto' }} className="scroll-reveal">
+          {/* Gold accent line */}
+          <div style={{ width: '60px', height: '2px', backgroundColor: '#8B6914', margin: '0 auto 28px' }} />
+
+          <blockquote style={{ margin: 0 }}>
+            <p className="shimmer-text" style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: 'clamp(26px, 3.8vw, 42px)',
+              fontStyle: 'italic',
+              fontWeight: 300,
+              lineHeight: 1.4,
+              marginBottom: '20px'
+            }}>
+              “The final journey is not a logistical task to be efficiently executed. It is a sacred tribute to be gradually, intimately, and reverently honored.”
+            </p>
+            <footer style={{
+              fontSize: '12px',
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              color: '#8B6914',
+              fontWeight: 600
+            }}>
+              — THE ETERNAL REPOS PHILOSOPHY
+            </footer>
+          </blockquote>
+
+          {/* Gold accent line bottom */}
+          <div style={{ width: '60px', height: '2px', backgroundColor: '#8B6914', margin: '28px auto 0' }} />
+        </div>
+      </section>
+
+      {/* ==========================================
+          4 · CEREMONIAL PILLARS GRID (4:5 Aspect Cards)
+         ========================================== */}
+      <section style={{
+        padding: '120px 40px',
+        backgroundColor: '#FDF8F0'
+      }}>
+        <div style={{ maxWidth: '1350px', margin: '0 auto' }}>
+          
+          <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 60px' }}>
+            <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 600, display: 'block', marginBottom: '12px' }}>
+              WHAT WE CURATE
+            </span>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(36px, 4.5vw, 54px)', color: '#2C1810', fontWeight: 400 }}>
+              The Pillars of Ceremonial Sanctuary
+            </h2>
+            <div style={{ width: '50px', height: '1px', backgroundColor: '#8B6914', margin: '16px auto' }} />
+            <p style={{ fontSize: '16px', color: '#736458', lineHeight: 1.8 }}>
+              Explore the four architectural dimensions of India’s premier ceremonial hearse mobility platform.
+            </p>
+          </div>
+
+          {/* 4 Cards Grid */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '28px'
+          }}>
+            {[
+              {
+                title: '360° Panoramic Glass Sanctuary',
+                sub: 'Electrochromic Smart Privacy Glass · Dimmable Daylight',
+                img: '/images/eternal_glass_sanctuary.png'
+              },
+              {
+                title: 'Patented Electro-Hydraulic Bier',
+                sub: 'Whisper Elevation · Silent Leveling Suspension',
+                img: '/images/eternal_bier_sanctuary.png'
+              },
+              {
+                title: 'Executive Family Lounge Suite',
+                sub: 'Hand-stitched Leather · HEPA-14 Atmosphere',
+                img: '/images/vehicle_features_roof.png'
+              },
+              {
+                title: 'State & Diplomatic Ceremonial Hearse',
+                sub: 'Champagne Gold Anchors · Integrated Floral Mounts',
+                img: '/images/eternal_ceremonial_exterior_1.png'
+              }
+            ].map((pillar, idx) => (
+              <div
+                key={idx}
+                onClick={() => setActiveTab('vehicle')}
+                style={{
+                  position: 'relative',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  height: '420px',
+                  cursor: 'pointer',
+                  border: '1px solid rgba(139, 105, 20, 0.25)',
+                  boxShadow: '0 15px 35px rgba(44, 24, 16, 0.08)',
+                  transition: 'all 0.5s ease'
+                }}
+                className="luxury-card-hover"
+              >
+                <img
+                  src={pillar.img}
+                  alt={pillar.title}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block',
+                    transition: 'transform 0.8s ease'
+                  }}
+                />
+                {/* Gradient Scrim Overlay */}
+                <div style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'linear-gradient(180deg, rgba(44, 24, 16, 0.1) 0%, rgba(44, 24, 16, 0.85) 100%)'
+                }} />
+                
+                {/* Content */}
+                <div style={{
+                  position: 'absolute',
+                  bottom: '28px',
+                  left: '24px',
+                  right: '24px',
+                  color: '#FDF8F0'
+                }}>
+                  <span style={{ fontSize: '10px', letterSpacing: '0.18em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 600, display: 'block', marginBottom: '6px' }}>
+                    PILLAR 0{idx + 1}
+                  </span>
+                  <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '24px', color: '#FDF8F0', marginBottom: '6px', lineHeight: 1.25 }}>
+                    {pillar.title}
+                  </h3>
+                  <p style={{ fontSize: '13px', color: '#D9CBBE', opacity: 0.9 }}>
+                    {pillar.sub}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ==========================================
+          5 · THE DIFFERENCE: 01 to 06 NUMBERED GRID (Elevated India Style)
+         ========================================== */}
+      <section style={{
+        padding: '120px 40px',
+        backgroundColor: '#24140D',
+        color: '#FDF8F0',
+        borderTop: '1px solid rgba(139, 105, 20, 0.25)'
+      }}>
+        <div style={{ maxWidth: '1350px', margin: '0 auto' }}>
+          
+          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+            <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 600 }}>
+              THE RECORD BEHIND THE MOBILITY
+            </span>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(36px, 4.5vw, 54px)', color: '#FDF8F0', marginTop: '10px', fontWeight: 400 }}>
+              Why Eternal Repos
+            </h2>
+            <div style={{ width: '50px', height: '1px', backgroundColor: '#8B6914', margin: '16px auto' }} />
+          </div>
+
+          {/* 6 Numbered Grid Items */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+            gap: '1px',
+            backgroundColor: 'rgba(139, 105, 20, 0.25)',
+            border: '1px solid rgba(139, 105, 20, 0.25)'
+          }}>
+            {[
+              { num: '01', title: 'Privileged Chassis Engineering', body: 'Custom wide-body chassis with electro-hydraulic silent bier, auto-leveling suspension, and whisper-quiet operation built from the ground up.' },
+              { num: '02', title: 'End-to-End White-Glove Protocol', body: 'Chauffeured luxury personnel in white-glove attire, 24/7 dedicated dispatch, and seamless coordination between hospitals, crematoriums, and estates.' },
+              { num: '03', title: 'Cultural & Faith Intelligence', body: 'Deep understanding of diverse ceremonial customs across faiths — featuring climate-controlled floral holders and silent ritual atmosphere.' },
+              { num: '04', title: '24/7 Priority Concierge', body: 'A dedicated concierge manager accompanies every protocol. Available at every hour, proactive rather than reactive.' },
+              { num: '05', title: 'Tailored Institutional Fleets', body: 'Zero-capex fleet leasing for tertiary hospitals, municipal trusts, and private funeral firms with 100% SLA uptime guarantee.' },
+              { num: '06', title: 'Absolute Discretion & Integrity', body: 'Your privacy is non-negotiable. We operate with the discretion and solemn reverence of a private household.' }
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className="why-eternal-card"
+              >
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
+                  <span className="card-num" style={{
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontSize: '36px',
+                    color: '#8B6914',
+                    fontWeight: 400,
+                    display: 'block'
+                  }}>
+                    {item.num}
+                  </span>
+                  <div className="card-arrow" style={{ color: '#D4AF37' }}>
+                    <ArrowRight size={18} />
+                  </div>
+                </div>
+                <h3 className="card-title" style={{
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontSize: '24px',
+                  color: '#FDF8F0',
+                  marginBottom: '12px',
+                  fontWeight: 500
+                }}>
+                  {item.title}
+                </h3>
+                <p className="card-body" style={{
+                  fontSize: '15px',
+                  color: '#D9CBBE',
+                  lineHeight: 1.75,
+                  fontWeight: 300
+                }}>
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ==========================================
+          6 · IN TRUSTED HANDS: LEADERSHIP & SLA STATS
+         ========================================== */}
+      <section style={{
+        padding: '110px 40px',
+        backgroundColor: '#FDF8F0',
+        borderBottom: '1px solid rgba(44, 24, 16, 0.08)'
+      }}>
+        <div style={{ maxWidth: '1300px', margin: '0 auto' }}>
+          
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: '1.1fr 0.9fr',
+            gap: '64px',
+            alignItems: 'center'
+          }} className="responsive-grid">
+            
+            {/* Left: Quote */}
+            <div>
+              <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 600, display: 'block', marginBottom: '12px' }}>
+                IN TRUSTED HANDS
+              </span>
+              <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(34px, 4vw, 48px)', color: '#2C1810', marginBottom: '28px', fontWeight: 400 }}>
+                Operations & Institutional Infrastructure
+              </h2>
+
+              <blockquote style={{ position: 'relative', paddingLeft: '24px', borderLeft: '3px solid #8B6914' }}>
+                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '24px', fontStyle: 'italic', color: '#2C1810', lineHeight: 1.5, marginBottom: '20px' }}>
+                  “After years of engineering luxury mobility platforms, Eternal Repos is the commitment we are proudest to put our name behind. Every vehicle, white-glove driver, and hospital partnership stands behind these solemn journeys — with the utmost dignity.”
+                </p>
+                <footer style={{ fontSize: '14px', color: '#8B6914', fontWeight: 600 }}>
+                  <strong>Azimuth Business on Wheels</strong> · <em>Delhi NCR Protocol Division</em>
+                </footer>
+              </blockquote>
+            </div>
+
+            {/* Right: Key Stats Box */}
+            <div className="institutional-standards-card">
+              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '28px', color: '#FDF8F0', marginBottom: '24px' }}>
+                Institutional Standards
+              </h3>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                <div className="stat-item-box">
+                  <span className="stat-num-text">99.98%</span>
+                  <span className="stat-label-text">On-Time SLA Uptime</span>
+                </div>
+
+                <div className="stat-item-box">
+                  <span className="stat-num-text">&lt; 15 Min</span>
+                  <span className="stat-label-text">Priority Concierge</span>
+                </div>
+
+                <div className="stat-item-box">
+                  <span className="stat-num-text">100%</span>
+                  <span className="stat-label-text">Hospital Grade Sterile</span>
+                </div>
+
+                <div className="stat-item-box">
+                  <span className="stat-num-text">24/7</span>
+                  <span className="stat-label-text">On-Road Dispatch</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ==========================================
+          7 · CLOSING CALL-TO-ACTION (Elevated India Style)
+         ========================================== */}
+      <section style={{
+        padding: '110px 40px',
+        background: 'linear-gradient(135deg, #2C1810 0%, #1F100A 100%)',
+        color: '#FDF8F0',
+        textAlign: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+        borderTop: '1px solid rgba(139, 105, 20, 0.3)'
+      }}>
+        <div style={{ position: 'relative', zIndex: 5, maxWidth: '860px', margin: '0 auto' }}>
+          
+          <span style={{ color: '#8B6914', fontSize: '11px', letterSpacing: '0.3em', textTransform: 'uppercase', fontWeight: 600 }}>
+            PARTNER WITH ETERNAL
+          </span>
+
+          <h2 style={{
+            fontFamily: "'Cormorant Garamond', serif",
+            fontSize: 'clamp(38px, 5vw, 58px)',
+            color: '#FDF8F0',
+            margin: '16px 0 20px',
+            fontWeight: 400
+          }}>
+            Bring dignified farewell mobility to those you serve
+          </h2>
+
+          <p style={{
+            color: '#D9CBBE',
+            fontSize: '17px',
+            lineHeight: 1.8,
+            marginBottom: '44px',
+            fontWeight: 300
+          }}>
+            We work with flagship hospital chains, funeral management firms, municipal bodies, and religious trusts across Delhi NCR. Let's discuss a partnership built on trust and tribute.
+          </p>
+
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
+            {/* Primary (Gold) */}
+            <button
+              onClick={openConciergeModal}
+              style={{
+                backgroundColor: '#8B6914',
+                color: '#2C1810',
+                padding: '16px 36px',
+                borderRadius: '40px',
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '13px',
+                letterSpacing: '0.12em',
+                fontWeight: 600,
+                textTransform: 'uppercase',
+                border: '1px solid #8B6914',
+                cursor: 'pointer',
+                boxShadow: '0 10px 30px rgba(139, 105, 20, 0.3)'
+              }}
+            >
+              REQUEST A PARTNERSHIP
+            </button>
+
+            {/* Secondary (Outlined) */}
+            <button
+              onClick={openConciergeModal}
+              style={{
+                backgroundColor: 'transparent',
+                color: '#FDF8F0',
+                padding: '16px 36px',
+                borderRadius: '40px',
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '13px',
+                letterSpacing: '0.12em',
+                fontWeight: 500,
+                textTransform: 'uppercase',
+                border: '1px solid rgba(253, 248, 240, 0.4)',
+                cursor: 'pointer'
+              }}
+            >
+              SPEAK WITH A CURATOR
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      <style>{`
+        @media (max-width: 900px) {
+          .responsive-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
+
+    </div>
+  );
+};

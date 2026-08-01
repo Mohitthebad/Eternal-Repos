@@ -1,0 +1,579 @@
+:root {
+  /* 2.2 Colour Palette */
+  --bg-deep-ivory: #FDF8F0;         /* Primary – Page & section backgrounds */
+  --bg-dark-brown: #2C1810;         /* Primary – Headers, navigation, footer */
+  --accent-gold: #8B6914;           /* Accent – Subheadings, dividers, hover states, CTAs */
+  --text-charcoal: #1A1A1A;         /* Text – Body text, paragraphs */
+  --bg-warm-white: #FFFFFF;         /* Supporting – Cards, clean sections */
+  --bg-soft-blush: #F5EFE6;         /* Supporting – Alternating section backgrounds */
+
+  /* Legacy & Helper Tokens mapped to Palette */
+  --bg-ivory: var(--bg-deep-ivory);
+  --bg-walnut-dark: var(--bg-dark-brown);
+  --bg-walnut-card: #24140D;
+  --bg-glass: rgba(253, 248, 240, 0.88);
+
+  --text-walnut: var(--bg-dark-brown);
+  --text-dark-brown: #2C1810;
+  --text-muted: #1A1A1A;
+  --text-gold: var(--accent-gold);
+  --text-gold-light: #C5A059;
+  --text-light-ivory: #FDF8F0;
+  --text-light-muted: #D9CBBE;
+
+  --accent-gold-bright: #A67C1E;
+  --accent-champagne: #D4AF37;
+  --accent-champagne-light: #E6C875;
+  --accent-gold-glow: rgba(139, 105, 20, 0.18);
+
+  --border-gold-subtle: rgba(139, 105, 20, 0.25);
+  --border-light-subtle: rgba(44, 24, 16, 0.1);
+  --border-dark-subtle: rgba(212, 175, 55, 0.2);
+
+  /* 2.3 Typography */
+  --font-heading: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', 'Lato', 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --min-body-font-size: 16px;
+
+  --shadow-soft: 0 20px 40px -15px rgba(44, 24, 16, 0.07);
+  --shadow-luxury: 0 30px 60px -20px rgba(28, 19, 14, 0.25);
+  --shadow-gold: 0 10px 30px -5px rgba(139, 105, 20, 0.2);
+
+  --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  font-size: var(--min-body-font-size);
+  background-color: var(--bg-deep-ivory);
+  color: var(--text-charcoal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--bg-deep-ivory);
+  color: var(--text-charcoal);
+  font-size: 16px; /* Minimum body font size 16px for readability on all devices */
+  line-height: 1.8;
+}
+
+/* Custom Luxury Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep-ivory);
+}
+::-webkit-scrollbar-thumb {
+  background: #D9C9B5;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-gold);
+}
+
+/* 2.3 Typography - Base Headings */
+h1, h2, h3, h4, h5, h6, .font-serif {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Paragraphs - Charcoal Dark & Min 16px */
+p, span, li, td, th, label, input, textarea {
+  font-size: 16px; /* Minimum 16px */
+}
+
+p {
+  line-height: 1.8;
+  color: var(--text-charcoal);
+}
+
+/* Accent / Pull Quotes - Italicised serif for emotional statements and brand lines */
+blockquote, .pull-quote, .brand-quote, .quote-serif {
+  font-family: var(--font-heading);
+  font-style: italic;
+  color: var(--accent-gold);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 16px;
+}
+
+/* Utility Classes for Brand Guidelines */
+.bg-deep-ivory { background-color: #FDF8F0 !important; }
+.bg-dark-brown { background-color: #2C1810 !important; }
+.bg-champagne-gold { background-color: #8B6914 !important; }
+.bg-warm-white { background-color: #FFFFFF !important; }
+.bg-soft-blush { background-color: #F5EFE6 !important; }
+
+.text-charcoal { color: #1A1A1A !important; }
+.text-dark-brown { color: #2C1810 !important; }
+.text-champagne-gold { color: #8B6914 !important; }
+.text-warm-white { color: #FFFFFF !important; }
+.text-deep-ivory { color: #FDF8F0 !important; }
+
+/* Micro Animations & Utilities */
+.tracking-ultra {
+  letter-spacing: 0.25em;
+}
+
+.divider-gold {
+  height: 1px;
+  background-color: var(--accent-gold);
+  border: none;
+  margin: 24px 0;
+  opacity: 0.4;
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #8B6914 0%, #D4AF37 50%, #8B6914 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-text-light {
+  background: linear-gradient(135deg, #FDF8F0 0%, #E6C875 50%, #C5A059 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 25px rgba(139, 105, 20, 0.15);
+}
+
+/* Smooth Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Glassmorphism Luxury */
+.glass-panel {
+  background: rgba(253, 248, 240, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(139, 105, 20, 0.2);
+}
+
+.glass-panel-dark {
+  background: rgba(44, 24, 16, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+/* Luxury Card Hover */
+.luxury-card-hover {
+  transition: var(--transition-smooth);
+}
+.luxury-card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px -15px rgba(44, 24, 16, 0.12);
+  border-color: rgba(139, 105, 20, 0.4);
+}
+
+/* Why Eternal Grid Card Hover */
+.why-eternal-card {
+  position: relative;
+  background-color: #2C1810;
+  padding: 48px 36px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.why-eternal-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #8B6914, #D4AF37, #8B6914);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.why-eternal-card:hover {
+  background-color: #381F15;
+  background: radial-gradient(circle at 30% 20%, #3E2318 0%, #22120B 100%);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+  z-index: 10;
+}
+
+.why-eternal-card:hover::before {
+  transform: scaleX(1);
+}
+
+.why-eternal-card .card-num {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.why-eternal-card:hover .card-num {
+  color: #D4AF37 !important;
+  transform: translateX(4px) scale(1.08);
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.35);
+}
+
+.why-eternal-card .card-title {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.why-eternal-card:hover .card-title {
+  color: #FFFFFF !important;
+  transform: translateX(4px);
+}
+
+.why-eternal-card .card-body {
+  transition: color 0.3s ease;
+}
+
+.why-eternal-card:hover .card-body {
+  color: #EFE5D7 !important;
+}
+
+.why-eternal-card .card-arrow {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.why-eternal-card:hover .card-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Institutional Standards Card & Stats Hover Animations */
+.institutional-standards-card {
+  position: relative;
+  background-color: #2C1810;
+  color: #FDF8F0;
+  padding: 48px 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(139, 105, 20, 0.4);
+  box-shadow: 0 25px 50px rgba(44, 24, 16, 0.15);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.institutional-standards-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #8B6914, #D4AF37, #8B6914);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.institutional-standards-card:hover {
+  background: radial-gradient(circle at 80% 20%, #3B2016 0%, #22120B 100%);
+  border-color: #D4AF37;
+  transform: translateY(-8px);
+  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.4), 0 0 30px rgba(139, 105, 20, 0.2);
+}
+
+.institutional-standards-card:hover::before {
+  transform: scaleX(1);
+}
+
+.stat-item-box {
+  padding: 16px 14px;
+  border-radius: 14px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.stat-item-box:hover {
+  background-color: rgba(139, 105, 20, 0.14);
+  border-color: rgba(212, 175, 55, 0.35);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.stat-num-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  color: #8B6914;
+  font-weight: 400;
+  display: block;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stat-item-box:hover .stat-num-text {
+  color: #D4AF37 !important;
+  transform: scale(1.08);
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.stat-label-text {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: #D9CBBE;
+  text-transform: uppercase;
+  transition: color 0.3s ease, letter-spacing 0.3s ease;
+  display: block;
+  margin-top: 4px;
+}
+
+.stat-item-box:hover .stat-label-text {
+  color: #FDF8F0 !important;
+  letter-spacing: 0.15em;
+}
+
+/* ============================================
+   PREMIUM ANIMATIONS — ETERNAL REPOS
+   ============================================ */
+
+/* #6 + #19: Scroll-Reveal Fade & Slide (via IntersectionObserver) */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.scroll-reveal-delay-1 { transition-delay: 0.1s; }
+.scroll-reveal-delay-2 { transition-delay: 0.2s; }
+.scroll-reveal-delay-3 { transition-delay: 0.3s; }
+.scroll-reveal-delay-4 { transition-delay: 0.4s; }
+.scroll-reveal-delay-5 { transition-delay: 0.5s; }
+
+/* #9: Scroll Progress Bar */
+#scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, #8B6914, #D4AF37, #8B6914);
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* #11: Ken Burns Hero Image */
+@keyframes kenBurns {
+  0%   { transform: scale(1) translate(0, 0); }
+  30%  { transform: scale(1.06) translate(-1%, 0.5%); }
+  60%  { transform: scale(1.04) translate(1%, -0.5%); }
+  100% { transform: scale(1) translate(0, 0); }
+}
+.ken-burns {
+  animation: kenBurns 18s ease-in-out infinite;
+}
+
+/* #12: Clip-path Reveal Mask */
+@keyframes revealMask {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+.reveal-mask {
+  clip-path: inset(0 0% 0 0);
+}
+.reveal-mask.revealed {
+  animation: revealMask 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* #16: Split-Letter Reveal */
+@keyframes letterReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px) rotateX(-30deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
+}
+.split-letter {
+  display: inline-block;
+  opacity: 0;
+  animation: letterReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* #18: Gradient Text Shimmer */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #8B6914 0%,
+    #D4AF37 30%,
+    #FDF8F0 50%,
+    #D4AF37 70%,
+    #8B6914 100%
+  );
+  background-size: 800px 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3.5s linear infinite;
+}
+
+/* #17: Typewriter cursor blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: #8B6914;
+  margin-left: 3px;
+  vertical-align: middle;
+  animation: blink 0.9s step-end infinite;
+}
+
+/* #20: Morphing text fade */
+@keyframes wordFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes wordFadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-8px); }
+}
+.morph-word-in  { animation: wordFadeIn  0.5s ease forwards; }
+.morph-word-out { animation: wordFadeOut 0.4s ease forwards; }
+
+/* #2: Flip Card */
+.flip-card {
+  perspective: 1000px;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 20px;
+}
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* #4: Glassmorphism hover card */
+.glass-hover-card {
+  background: rgba(253, 248, 240, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 16px;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+.glass-hover-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(212,175,55,0.18) 0%, rgba(139,105,20,0.06) 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.glass-hover-card:hover {
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3), 0 0 30px rgba(139,105,20,0.2);
+  transform: translateY(-6px);
+}
+.glass-hover-card:hover::before {
+  opacity: 1;
+}
+
+/* #13: Gallery hover zoom with overlay */
+.gallery-thumb {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.gallery-thumb img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gallery-thumb:hover img {
+  transform: scale(1.08);
+}
+.gallery-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(26,14,8,0.85) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+.gallery-thumb:hover .gallery-thumb-overlay {
+  opacity: 1;
+}
+.gallery-thumb-caption {
+  transform: translateY(12px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #FDF8F0;
+  font-size: 13px;
+  font-weight: 500;
+}
+.gallery-thumb:hover .gallery-thumb-caption {
+  transform: translateY(0);
+}
+
+/* #5: Magnetic button base */
+.magnetic-btn {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
