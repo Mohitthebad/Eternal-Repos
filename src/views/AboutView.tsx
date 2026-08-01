@@ -18,15 +18,15 @@ export const AboutView: React.FC<AboutViewProps> = () => {
   return (
     <div className="animate-fade-in" style={{ backgroundColor: '#FDF8F0', color: '#2C1810' }}>
       
-      {/* 1. HERO SECTION */}
+      {/* CHAPTER 1: BRAND BELIEF */}
       <section style={{
-        padding: '130px 40px 90px',
+        padding: '140px 40px 100px',
         backgroundColor: '#FDF8F0',
         borderBottom: '1px solid rgba(139, 105, 20, 0.2)'
       }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '16px' }}>
-            ABOUT ETERNAL REPOS
+            CHAPTER 01 · BRAND BELIEF
           </span>
           <h1 style={{
             fontFamily: "'Cormorant Garamond', serif",
@@ -53,10 +53,9 @@ export const AboutView: React.FC<AboutViewProps> = () => {
           </p>
 
           <div style={{
-            borderRadius: '20px',
+            borderRadius: '8px',
             overflow: 'hidden',
-            border: '1px solid rgba(139, 105, 20, 0.25)',
-            boxShadow: '0 25px 60px rgba(44, 24, 16, 0.08)'
+            border: '1px solid rgba(139, 105, 20, 0.2)'
           }}>
             <img
               src="/images/craftsmanship.png"
@@ -67,11 +66,11 @@ export const AboutView: React.FC<AboutViewProps> = () => {
         </div>
       </section>
 
-      {/* 2. ORIGIN: WHY ETERNAL REPOS EXISTS */}
-      <section style={{ padding: '130px 40px', backgroundColor: '#FDF8F0' }}>
+      {/* CHAPTER 2: WHY THE COMPANY EXISTS */}
+      <section style={{ padding: '140px 40px', backgroundColor: '#FDF8F0' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '16px' }}>
-            THE ORIGIN STORY
+            CHAPTER 02 · THE ORIGIN
           </span>
           <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(36px, 4.2vw, 54px)', color: '#2C1810', fontWeight: 400, marginBottom: '28px' }}>
             Why Eternal Repos Exists
@@ -85,25 +84,25 @@ export const AboutView: React.FC<AboutViewProps> = () => {
             fontWeight: 300,
             marginBottom: '0'
           }}>
-            Across India, final transport has historically relied on makeshift commercial vans, lacking privacy, acoustic insulation, or standardized operational protocols. Eternal Repos was established by Azimuth Business on Wheels to bridge this institutional gap. By engineering purpose-built ceremonial hearses with silent electro-hydraulic biers, climate-managed atmospheres, and white-glove personnel, we provide families and flagship institutions with an uncompromised standard of solemn reverence.
+            Across India, ceremonial transport has historically relied on makeshift commercial vans, lacking privacy, acoustic insulation, or standardized operational protocols. Eternal Repos was established by Azimuth Business on Wheels to bridge this institutional gap. By engineering purpose-built ceremonial hearses with silent electro-hydraulic biers, climate-managed atmospheres, and white-glove personnel, we provide families and flagship institutions with an uncompromised standard of solemn reverence.
           </p>
         </div>
       </section>
 
-      {/* 3. SOPHISTICATED COMPARISON (What families experience vs The Eternal Standard) */}
+      {/* CHAPTER 3: THE STANDARD IT SEEKS TO CREATE (MATURE COMPARISON) */}
       <section style={{
-        padding: '130px 40px',
+        padding: '140px 40px',
         backgroundColor: '#F7F2E9',
         borderTop: '1px solid rgba(139, 105, 20, 0.2)',
         borderBottom: '1px solid rgba(139, 105, 20, 0.2)'
       }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '70px' }}>
+          <div style={{ marginBottom: '60px' }}>
             <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '12px' }}>
-              THE EVOLUTION OF CEREMONIAL MOBILITY
+              CHAPTER 03 · THE STANDARD
             </span>
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(36px, 4.2vw, 54px)', color: '#2C1810', fontWeight: 400 }}>
-              Raising the Benchmark
+              The Standard We Seek to Create
             </h2>
           </div>
 
@@ -113,12 +112,12 @@ export const AboutView: React.FC<AboutViewProps> = () => {
             gap: '60px'
           }}>
             <div style={{ borderTop: '2px solid rgba(139, 105, 20, 0.3)', paddingTop: '28px' }}>
-              <span style={{ fontSize: '11px', letterSpacing: '0.2em', color: '#736458', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '16px' }}>
-                WHAT FAMILIES OFTEN EXPERIENCE
+              <span style={{ fontSize: '11px', letterSpacing: '0.2em', color: '#736458', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '20px' }}>
+                WHAT FAMILIES OFTEN ENCOUNTER
               </span>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                {['Adapted commercial vehicles', 'Limited environmental control', 'Inconsistent presentation', 'Fragmented coordination'].map((item, idx) => (
-                  <li key={idx} style={{ fontSize: '16px', color: '#5C4E43', fontWeight: 300, display: 'flex', alignItems: 'center', gap: '10px' }}>
+                {['Vehicles adapted for the purpose', 'Limited climate control', 'Inconsistent presentation', 'Fragmented coordination'].map((item, idx) => (
+                  <li key={idx} style={{ fontSize: '16.5px', color: '#5C4E43', fontWeight: 300, display: 'flex', alignItems: 'center', gap: '12px' }}>
                     <div style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: '#736458' }} />
                     {item}
                   </li>
@@ -127,12 +126,12 @@ export const AboutView: React.FC<AboutViewProps> = () => {
             </div>
 
             <div style={{ borderTop: '2px solid #8B6914', paddingTop: '28px' }}>
-              <span style={{ fontSize: '11px', letterSpacing: '0.2em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '16px' }}>
-                THE ETERNAL STANDARD
+              <span style={{ fontSize: '11px', letterSpacing: '0.2em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '20px' }}>
+                THE ETERNAL APPROACH
               </span>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                {['Purpose-built architecture', 'Calm, climate-managed interiors', 'Consistent professional presentation', 'Structured institutional coordination'].map((item, idx) => (
-                  <li key={idx} style={{ fontSize: '16px', color: '#2C1810', fontWeight: 500, display: 'flex', alignItems: 'center', gap: '10px' }}>
+                {['Purpose-built architecture', 'Calm, managed interiors', 'Consistent presentation', 'Structured coordination'].map((item, idx) => (
+                  <li key={idx} style={{ fontSize: '16.5px', color: '#2C1810', fontWeight: 500, display: 'flex', alignItems: 'center', gap: '12px' }}>
                     <div style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#8B6914' }} />
                     {item}
                   </li>
@@ -143,42 +142,46 @@ export const AboutView: React.FC<AboutViewProps> = () => {
         </div>
       </section>
 
-      {/* 4. BELIEF STATEMENT (Dark Section) */}
+      {/* SINGLE POWERFUL DARK STATEMENT SECTION (No paragraph, no icons, no CTA) */}
       <section style={{
-        padding: '130px 40px',
+        padding: '140px 40px',
         backgroundColor: '#2A140D',
         color: '#FDF8F0',
         textAlign: 'center'
       }}>
-        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-          <div style={{ width: '60px', height: '2px', backgroundColor: '#8B6914', margin: '0 auto 32px' }} />
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <h2 style={{
             fontFamily: "'Cormorant Garamond', serif",
-            fontSize: 'clamp(36px, 4.8vw, 60px)',
+            fontSize: 'clamp(38px, 4.8vw, 62px)',
             color: '#FDF8F0',
             fontWeight: 300,
             lineHeight: 1.35,
             fontStyle: 'italic',
-            marginBottom: '32px'
+            margin: 0
           }}>
             “Dignity should not be an upgrade. It should be the standard.”
           </h2>
-          <div style={{ width: '60px', height: '2px', backgroundColor: '#8B6914', margin: '0 auto' }} />
         </div>
       </section>
 
-      {/* 5. VISION AND MISSION (Two Clean Editorial Columns) */}
-      <section style={{ padding: '130px 40px', backgroundColor: '#FDF8F0' }}>
+      {/* CHAPTER 4: VISION AND MISSION */}
+      <section style={{ padding: '140px 40px', backgroundColor: '#FDF8F0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+          <div style={{ marginBottom: '60px' }}>
+            <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '12px' }}>
+              CHAPTER 04 · DIRECTION
+            </span>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(36px, 4.2vw, 54px)', color: '#2C1810', fontWeight: 400 }}>
+              Vision and Mission
+            </h2>
+          </div>
+
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
             gap: '60px'
           }}>
             <div style={{ paddingLeft: '28px', borderLeft: '3px solid #8B6914' }}>
-              <span style={{ fontSize: '11px', letterSpacing: '0.25em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '12px' }}>
-                OUR VISION
-              </span>
               <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '32px', color: '#2C1810', marginBottom: '16px', fontWeight: 500 }}>
                 Category-Defining Mobility
               </h3>
@@ -188,9 +191,6 @@ export const AboutView: React.FC<AboutViewProps> = () => {
             </div>
 
             <div style={{ paddingLeft: '28px', borderLeft: '3px solid #8B6914' }}>
-              <span style={{ fontSize: '11px', letterSpacing: '0.25em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '12px' }}>
-                OUR MISSION
-              </span>
               <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '32px', color: '#2C1810', marginBottom: '16px', fontWeight: 500 }}>
                 Uncompromised Reverence
               </h3>

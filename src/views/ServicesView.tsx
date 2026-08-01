@@ -61,7 +61,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ openConciergeModal }
     <div className="animate-fade-in" style={{ backgroundColor: '#FDF8F0', color: '#2C1810' }}>
       
       {/* SECTION HEADER */}
-      <section style={{ padding: '130px 40px 60px', backgroundColor: '#FDF8F0' }}>
+      <section style={{ padding: '140px 40px 60px', backgroundColor: '#FDF8F0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '16px' }}>
             OUR SERVICES
@@ -87,13 +87,13 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ openConciergeModal }
             fontWeight: 300,
             margin: 0
           }}>
-            From vehicle fabrication and leasing to fleet care, cooling systems, branding, and hygiene, Eternal Repos provides the complete infrastructure institutions need to deliver dignified and dependable final journeys.
+            From vehicle fabrication and leasing to fleet care, cooling systems, branding, and hygiene, Eternal Repos provides the complete infrastructure institutions need to deliver dignified final journeys.
           </p>
         </div>
       </section>
 
       {/* 6 COMPACT CARDS GRID */}
-      <section style={{ padding: '0 40px 130px', backgroundColor: '#FDF8F0' }}>
+      <section style={{ padding: '0 40px 140px', backgroundColor: '#FDF8F0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           <div style={{
             display: 'grid',
@@ -107,8 +107,8 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ openConciergeModal }
                 style={{
                   position: 'relative',
                   backgroundColor: '#FFFFFF',
-                  borderRadius: '16px',
-                  padding: '32px 28px',
+                  borderRadius: '12px',
+                  padding: '28px 24px',
                   border: '1px solid rgba(139, 105, 20, 0.2)',
                   boxShadow: '0 8px 24px rgba(44, 24, 16, 0.03)',
                   display: 'flex',
@@ -117,12 +117,12 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ openConciergeModal }
                   overflow: 'hidden',
                   transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease',
                   cursor: 'pointer',
-                  minHeight: '220px'
+                  minHeight: '200px'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.transform = 'translateY(-3px)';
                   e.currentTarget.style.borderColor = '#8B6914';
-                  e.currentTarget.style.boxShadow = '0 14px 32px rgba(44, 24, 16, 0.07)';
+                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(44, 24, 16, 0.06)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0px)';
@@ -137,7 +137,7 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ openConciergeModal }
                   top: '-10px',
                   right: '12px',
                   fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: '90px',
+                  fontSize: '85px',
                   fontWeight: 700,
                   color: 'rgba(139, 105, 20, 0.04)',
                   lineHeight: 1,
@@ -159,21 +159,21 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ openConciergeModal }
 
                   <h3 style={{
                     fontFamily: "'Cormorant Garamond', serif",
-                    fontSize: '25px',
+                    fontSize: '24px',
                     color: '#2C1810',
                     fontWeight: 500,
-                    marginBottom: '12px'
+                    marginBottom: '10px'
                   }}>
                     {svc.title}
                   </h3>
 
                   <p style={{
                     fontFamily: "'Inter', sans-serif",
-                    fontSize: '15px',
+                    fontSize: '14.5px',
                     color: '#5C4E43',
-                    lineHeight: 1.65,
+                    lineHeight: 1.6,
                     fontWeight: 300,
-                    marginBottom: '24px'
+                    marginBottom: '20px'
                   }}>
                     {svc.desc}
                   </p>
@@ -184,17 +184,17 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ openConciergeModal }
                   zIndex: 1,
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px',
+                  gap: '6px',
                   color: '#8B6914',
-                  fontSize: '12.5px',
+                  fontSize: '12px',
                   letterSpacing: '0.08em',
                   fontWeight: 600,
                   textTransform: 'uppercase',
                   borderTop: '1px solid rgba(139, 105, 20, 0.15)',
-                  paddingTop: '16px'
+                  paddingTop: '14px'
                 }}>
-                  <span>Request a Demonstration</span>
-                  <ArrowRight size={14} color="#8B6914" />
+                  <span>View capability</span>
+                  <ArrowRight size={13} color="#8B6914" />
                 </div>
               </div>
             ))}

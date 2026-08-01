@@ -26,7 +26,7 @@ export const ContactView: React.FC<ContactViewProps> = () => {
       
       {/* HERO SECTION */}
       <section style={{
-        padding: '130px 40px 90px',
+        padding: '140px 40px 100px',
         backgroundColor: '#FDF8F0',
         borderBottom: '1px solid rgba(139, 105, 20, 0.2)'
       }}>
@@ -61,7 +61,7 @@ export const ContactView: React.FC<ContactViewProps> = () => {
       </section>
 
       {/* 3 SIMPLE ROWS & FORM */}
-      <section style={{ padding: '100px 40px 130px', backgroundColor: '#FDF8F0' }}>
+      <section style={{ padding: '100px 40px 140px', backgroundColor: '#FDF8F0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           
           <div style={{
@@ -71,7 +71,7 @@ export const ContactView: React.FC<ContactViewProps> = () => {
             alignItems: 'start'
           }}>
             
-            {/* Left: 3 Simple Text Rows + Coverage Box */}
+            {/* Left: 3 Simple Text Rows + Dispatch Hub Box */}
             <div>
               <span style={{ fontSize: '11px', letterSpacing: '0.25em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '32px' }}>
                 DIRECT CONTACT CHANNELS
@@ -80,31 +80,31 @@ export const ContactView: React.FC<ContactViewProps> = () => {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', marginBottom: '48px' }}>
                 <div style={{ borderBottom: '1px solid rgba(139, 105, 20, 0.2)', paddingBottom: '24px' }}>
                   <span style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#8B6914', fontWeight: 600, display: 'block', marginBottom: '8px' }}>
-                    URGENT OPERATIONAL SUPPORT (24/7 HOTLINE)
+                    URGENT OPERATIONAL ASSISTANCE (24/7 HOTLINE)
                   </span>
                   <a href="tel:+919876543210" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '28px', color: '#2C1810', textDecoration: 'none', fontWeight: 500 }}>
                     +91 98765 43210
                   </a>
                   <p style={{ fontSize: '14px', color: '#5C4E43', margin: '6px 0 0', fontWeight: 300 }}>
-                    24/7 immediate emergency dispatch & concierge response
+                    Available through dedicated support line
                   </p>
                 </div>
 
                 <div style={{ borderBottom: '1px solid rgba(139, 105, 20, 0.2)', paddingBottom: '24px' }}>
                   <span style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#8B6914', fontWeight: 600, display: 'block', marginBottom: '8px' }}>
-                    GENERAL & INSTITUTIONAL ENQUIRIES
+                    PARTNERSHIP & GENERAL ENQUIRIES
                   </span>
                   <a href="mailto:concierge@eternalrepos.com" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '28px', color: '#2C1810', textDecoration: 'none', fontWeight: 500 }}>
                     concierge@eternalrepos.com
                   </a>
                   <p style={{ fontSize: '14px', color: '#5C4E43', margin: '6px 0 0', fontWeight: 300 }}>
-                    Response within one business day for leasing & partnership briefings
+                    Response within one business day
                   </p>
                 </div>
 
                 <div>
                   <span style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#8B6914', fontWeight: 600, display: 'block', marginBottom: '8px' }}>
-                    OPERATIONAL COVERAGE
+                    OPERATIONAL REGION
                   </span>
                   <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '28px', color: '#2C1810', fontWeight: 500 }}>
                     Delhi NCR & Sovereign Protocol
@@ -115,13 +115,13 @@ export const ContactView: React.FC<ContactViewProps> = () => {
                 </div>
               </div>
 
-              {/* Operational Location Info Box (Replacing blank map) */}
+              {/* Dispatch Hub Box (Replacing blank map) */}
               <div style={{
                 backgroundColor: '#FFFFFF',
-                borderRadius: '16px',
+                borderRadius: '12px',
                 padding: '28px',
-                border: '1px solid rgba(139, 105, 20, 0.25)',
-                boxShadow: '0 10px 30px rgba(44, 24, 16, 0.04)'
+                border: '1px solid rgba(139, 105, 20, 0.2)',
+                boxShadow: '0 8px 24px rgba(44, 24, 16, 0.03)'
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
                   <MapPin size={18} color="#8B6914" />
@@ -141,7 +141,7 @@ export const ContactView: React.FC<ContactViewProps> = () => {
               {submitted ? (
                 <div style={{
                   backgroundColor: '#FFFFFF',
-                  borderRadius: '20px',
+                  borderRadius: '12px',
                   padding: '48px',
                   border: '1px solid #8B6914',
                   textAlign: 'center'
@@ -157,10 +157,10 @@ export const ContactView: React.FC<ContactViewProps> = () => {
               ) : (
                 <form onSubmit={handleSubmit} style={{
                   backgroundColor: '#FFFFFF',
-                  borderRadius: '20px',
+                  borderRadius: '12px',
                   padding: '44px',
                   border: '1px solid rgba(139, 105, 20, 0.25)',
-                  boxShadow: '0 20px 50px rgba(44, 24, 16, 0.05)',
+                  boxShadow: '0 16px 40px rgba(44, 24, 16, 0.04)',
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '20px'
@@ -179,7 +179,7 @@ export const ContactView: React.FC<ContactViewProps> = () => {
                         style={{
                           width: '100%',
                           padding: '14px 18px',
-                          borderRadius: '10px',
+                          borderRadius: '8px',
                           border: '1px solid rgba(139, 105, 20, 0.3)',
                           backgroundColor: '#FDF8F0',
                           fontSize: '15px',
@@ -201,7 +201,7 @@ export const ContactView: React.FC<ContactViewProps> = () => {
                         style={{
                           width: '100%',
                           padding: '14px 18px',
-                          borderRadius: '10px',
+                          borderRadius: '8px',
                           border: '1px solid rgba(139, 105, 20, 0.3)',
                           backgroundColor: '#FDF8F0',
                           fontSize: '15px',
@@ -226,7 +226,7 @@ export const ContactView: React.FC<ContactViewProps> = () => {
                         style={{
                           width: '100%',
                           padding: '14px 18px',
-                          borderRadius: '10px',
+                          borderRadius: '8px',
                           border: '1px solid rgba(139, 105, 20, 0.3)',
                           backgroundColor: '#FDF8F0',
                           fontSize: '15px',
@@ -249,7 +249,7 @@ export const ContactView: React.FC<ContactViewProps> = () => {
                         style={{
                           width: '100%',
                           padding: '14px 18px',
-                          borderRadius: '10px',
+                          borderRadius: '8px',
                           border: '1px solid rgba(139, 105, 20, 0.3)',
                           backgroundColor: '#FDF8F0',
                           fontSize: '15px',
@@ -270,7 +270,7 @@ export const ContactView: React.FC<ContactViewProps> = () => {
                       style={{
                         width: '100%',
                         padding: '14px 18px',
-                        borderRadius: '10px',
+                        borderRadius: '8px',
                         border: '1px solid rgba(139, 105, 20, 0.3)',
                         backgroundColor: '#FDF8F0',
                         fontSize: '15px',
@@ -297,7 +297,7 @@ export const ContactView: React.FC<ContactViewProps> = () => {
                       style={{
                         width: '100%',
                         padding: '14px 18px',
-                        borderRadius: '10px',
+                        borderRadius: '8px',
                         border: '1px solid rgba(139, 105, 20, 0.3)',
                         backgroundColor: '#FDF8F0',
                         fontSize: '15px',
@@ -315,7 +315,7 @@ export const ContactView: React.FC<ContactViewProps> = () => {
                       backgroundColor: '#8B6914',
                       color: '#FDF8F0',
                       padding: '16px',
-                      borderRadius: '12px',
+                      borderRadius: '8px',
                       fontFamily: "'Inter', sans-serif",
                       fontSize: '13.5px',
                       letterSpacing: '0.1em',
@@ -323,8 +323,7 @@ export const ContactView: React.FC<ContactViewProps> = () => {
                       textTransform: 'uppercase',
                       border: 'none',
                       cursor: 'pointer',
-                      boxShadow: '0 10px 25px rgba(139, 105, 20, 0.25)',
-                      transition: 'all 0.3s ease'
+                      boxShadow: '0 8px 20px rgba(139, 105, 20, 0.25)'
                     }}
                   >
                     Speak With Our Team

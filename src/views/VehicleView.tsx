@@ -13,7 +13,7 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
       
       {/* 1. HERO SECTION */}
       <section style={{
-        padding: '130px 40px 90px',
+        padding: '140px 40px 100px',
         backgroundColor: '#FDF8F0',
         borderBottom: '1px solid rgba(139, 105, 20, 0.2)'
       }}>
@@ -67,10 +67,9 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
           </button>
 
           <div style={{
-            borderRadius: '20px',
+            borderRadius: '8px',
             overflow: 'hidden',
-            border: '1px solid rgba(139, 105, 20, 0.25)',
-            boxShadow: '0 25px 60px rgba(44, 24, 16, 0.08)'
+            border: '1px solid rgba(139, 105, 20, 0.2)'
           }}>
             <img
               src="/images/eternal_hearse_light_theme.png"
@@ -82,7 +81,7 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
       </section>
 
       {/* 2. STORY SECTION 1: QUIET BY DESIGN */}
-      <section style={{ padding: '130px 40px', backgroundColor: '#FDF8F0' }}>
+      <section style={{ padding: '140px 40px', backgroundColor: '#FDF8F0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           <div style={{
             display: 'grid',
@@ -110,7 +109,7 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
               </ul>
             </div>
 
-            <div style={{ borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(139, 105, 20, 0.25)' }}>
+            <div style={{ borderRadius: '8px', overflow: 'hidden', border: '1px solid rgba(139, 105, 20, 0.2)' }}>
               <img
                 src="/images/eternal_glass_sanctuary.png"
                 alt="Panoramic Viewing Glass Sanctuary"
@@ -123,7 +122,7 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
 
       {/* 3. STORY SECTION 2: THE SANCTUARY INTERIOR */}
       <section style={{
-        padding: '130px 40px',
+        padding: '140px 40px',
         backgroundColor: '#F7F2E9',
         borderTop: '1px solid rgba(139, 105, 20, 0.2)',
         borderBottom: '1px solid rgba(139, 105, 20, 0.2)'
@@ -135,10 +134,10 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
             gap: '60px',
             alignItems: 'center'
           }}>
-            <div style={{ borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(139, 105, 20, 0.25)' }}>
+            <div style={{ borderRadius: '8px', overflow: 'hidden', border: '1px solid rgba(139, 105, 20, 0.2)' }}>
               <img
                 src="/images/eternal_bier_sanctuary.png"
-                alt="The Sanctuary Interior"
+                alt="A Calm Interior for Families"
                 style={{ width: '100%', height: 'auto', maxHeight: '480px', objectFit: 'cover', display: 'block' }}
               />
             </div>
@@ -148,7 +147,7 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
                 THE SANCTUARY INTERIOR
               </span>
               <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(36px, 4.2vw, 52px)', color: '#2C1810', marginBottom: '20px', fontWeight: 400 }}>
-                A Calm Space for Families
+                A Calm Interior for Families
               </h2>
               <p style={{ fontSize: '17px', color: '#5C4E43', lineHeight: 1.85, fontWeight: 300, marginBottom: '28px' }}>
                 Every mechanical interaction is automated and silent. The patented electro-hydraulic bier elevates seamlessly, avoiding awkward manual handling.
@@ -166,12 +165,12 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
         </div>
       </section>
 
-      {/* 4. REFINED TECHNICAL SPECIFICATIONS TABLE (No ratings or star language) */}
-      <section style={{ padding: '130px 40px', backgroundColor: '#FDF8F0' }}>
+      {/* 4. REFINED TECHNICAL SPECIFICATIONS TABLE */}
+      <section style={{ padding: '140px 40px', backgroundColor: '#FDF8F0' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
             <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '12px' }}>
-              TECHNICAL DATA
+              ENGINEERING DATA
             </span>
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(36px, 4.2vw, 54px)', color: '#2C1810', fontWeight: 400 }}>
               Technical Specifications
@@ -182,7 +181,7 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
             {[
               { id: 'architecture', label: 'Architecture & Frame' },
               { id: 'sanctuary', label: 'The Sanctuary' },
-              { id: 'safety', label: 'Hygiene & Security' }
+              { id: 'safety', label: 'Hygiene & Systems' }
             ].map(tab => (
               <button
                 key={tab.id}
@@ -208,17 +207,17 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
 
           <div style={{
             backgroundColor: '#FFFFFF',
-            borderRadius: '16px',
-            border: '1px solid rgba(139, 105, 20, 0.25)',
+            borderRadius: '12px',
+            border: '1px solid rgba(139, 105, 20, 0.2)',
             overflow: 'hidden',
-            boxShadow: '0 15px 40px rgba(44, 24, 16, 0.05)'
+            boxShadow: '0 8px 24px rgba(44, 24, 16, 0.04)'
           }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
               <tbody>
                 {activeTabSpec === 'architecture' && [
-                  ['Chassis Architecture', 'Custom Long Wheelbase Heavy-Duty Coach Platform', 'Standard specification'],
-                  ['Engine & Suspension', 'Low-Vibration Diesel Engine with Air Suspension', 'Standard specification'],
-                  ['Overall Length', '6,200 mm Extended Coach Body', 'Standard specification'],
+                  ['Chassis Architecture', 'Custom Long Wheelbase Heavy-Duty Coach Platform', 'Standard feature'],
+                  ['Engine & Suspension', 'Low-Vibration Diesel Engine with Air Suspension', 'Standard feature'],
+                  ['Overall Length', '6,200 mm Extended Coach Body', 'Standard feature'],
                   ['Viewing Chamber', '360° Electrochromic Dimmable Smart Glass', 'Included configuration']
                 ].map(([label, val, cat], idx) => (
                   <tr key={idx} style={{ borderBottom: '1px solid rgba(139, 105, 20, 0.15)' }}>
@@ -230,8 +229,8 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
 
                 {activeTabSpec === 'sanctuary' && [
                   ['Bier Elevation', 'Patented Electro-Hydraulic Whisper Mechanism', 'Included configuration'],
-                  ['Atmosphere Control', 'HEPA-14 Air Sterilization & Multi-Zone Temperature Management', 'Standard specification'],
-                  ['Seating Area', 'Hand-Stitched Leather Family Seating Suite', 'Standard specification'],
+                  ['Atmosphere Control', 'HEPA-14 Air Sterilization & Multi-Zone Temperature Control', 'Standard feature'],
+                  ['Seating Area', 'Hand-Stitched Leather Family Seating Suite', 'Standard feature'],
                   ['Interior Illumination', 'Warm Indirect Dimmable LED Strip Lighting', 'Included configuration']
                 ].map(([label, val, cat], idx) => (
                   <tr key={idx} style={{ borderBottom: '1px solid rgba(139, 105, 20, 0.15)' }}>
@@ -242,10 +241,10 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
                 ))}
 
                 {activeTabSpec === 'safety' && [
-                  ['Hygiene Standard', 'Hospital-Grade UV-C & Antimicrobial Surface Sanitization', 'Standard specification'],
-                  ['Security Features', 'GPS Tracking & Integrated Escort Coordination', 'Standard specification'],
-                  ['Operational Readiness', 'Structured Fleet Maintenance Program', 'Institutional option'],
-                  ['Chaperone Attire', 'White-Glove Uniformed Attire', 'Standard specification']
+                  ['Hygiene Standard', 'Hospital-Grade UV-C & Antimicrobial Surface Sanitization', 'Operational system'],
+                  ['Security Features', 'GPS Tracking & Integrated Escort Coordination', 'Operational system'],
+                  ['Operational Readiness', 'Structured Fleet Maintenance Protocol', 'Institutional option'],
+                  ['Chaperone Attire', 'White-Glove Uniformed Attire', 'Standard feature']
                 ].map(([label, val, cat], idx) => (
                   <tr key={idx} style={{ borderBottom: '1px solid rgba(139, 105, 20, 0.15)' }}>
                     <td style={{ padding: '20px 28px', color: '#8B6914', fontWeight: 600, width: '35%', fontSize: '15px' }}>{label}</td>
@@ -261,7 +260,7 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
 
       {/* 5. FINAL CALL TO ACTION */}
       <section style={{
-        padding: '130px 40px',
+        padding: '140px 40px',
         backgroundColor: '#2A140D',
         color: '#FDF8F0',
         textAlign: 'center'

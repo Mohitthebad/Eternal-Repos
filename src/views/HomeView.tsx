@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useRef, useCallback } from 'react';
 import { ArrowRight } from 'lucide-react';
 
 interface HomeViewProps {
@@ -8,13 +8,6 @@ interface HomeViewProps {
 }
 
 export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeModal }) => {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const onScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   const magnetRef = useRef<HTMLButtonElement>(null);
   const handleMagnet = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
@@ -26,47 +19,25 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
   }, []);
   const handleMagnetLeave = useCallback(() => { if (magnetRef.current) magnetRef.current.style.transform = 'translate(0,0)'; }, []);
 
-  useEffect(() => {
-    const els = document.querySelectorAll('.scroll-reveal');
-    const observer = new IntersectionObserver(
-      entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } }),
-      { threshold: 0.1 }
-    );
-    els.forEach(el => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <div className="animate-fade-in" style={{ color: '#2C1810', backgroundColor: '#FDF8F0' }}>
       
       {/* ==========================================
-          1 · HERO SECTION (Refined Masterpiece & Clean Mobile Above-Fold)
+          1 · HERO SECTION (Simplified & Disciplined)
          ========================================== */}
       <section style={{
         position: 'relative',
-        minHeight: '88vh',
+        minHeight: '86vh',
         background: 'radial-gradient(120% 100% at 30% 20%, #FDF8F0 0%, #F6EFE5 50%, #ECE1CF 100%)',
         color: '#2C1810',
         display: 'flex',
         alignItems: 'center',
-        padding: '90px 40px 70px',
+        padding: '120px 40px 80px',
         overflow: 'hidden',
         borderBottom: '1px solid rgba(139, 105, 20, 0.2)'
       }}>
         <div style={{
-          position: 'absolute',
-          top: `calc(5% + ${scrollY * 0.18}px)`,
-          right: '-5%',
-          width: '700px',
-          height: '700px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 70%)',
-          pointerEvents: 'none',
-          filter: 'blur(50px)'
-        }} />
-
-        <div style={{
-          maxWidth: '1350px',
+          maxWidth: '1280px',
           margin: '0 auto',
           width: '100%',
           display: 'grid',
@@ -82,7 +53,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
               alignItems: 'center',
               gap: '8px',
               backgroundColor: 'rgba(139, 105, 20, 0.08)',
-              padding: '6px 18px',
+              padding: '6px 16px',
               borderRadius: '20px',
               border: '1px solid rgba(139, 105, 20, 0.3)',
               marginBottom: '24px'
@@ -108,23 +79,17 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
 
             <p style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: '17px',
+              fontSize: '17.5px',
               lineHeight: 1.8,
               color: '#5C4E43',
-              maxWidth: '520px',
+              maxWidth: '500px',
               marginBottom: '36px',
               fontWeight: 300
             }}>
-              We believe the final journey deserves the same care, dignity, and thoughtfulness we bring to every meaningful moment in life.
+              A purpose-built ceremonial vehicle designed to bring calm, care, and dignity to the final journey.
             </p>
 
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '20px',
-              flexWrap: 'wrap',
-              marginBottom: '32px'
-            }}>
+            <div>
               <button
                 ref={magnetRef}
                 onClick={() => setActiveTab('vehicle')}
@@ -146,8 +111,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
                   alignItems: 'center',
                   gap: '10px',
                   cursor: 'pointer',
-                  boxShadow: '0 12px 30px rgba(139, 105, 20, 0.3)',
-                  transition: 'all 0.3s ease'
+                  boxShadow: '0 12px 30px rgba(139, 105, 20, 0.3)'
                 }}
               >
                 <span>Explore the Vehicle</span>
@@ -156,21 +120,21 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
             </div>
           </div>
 
-          {/* Right Column: Showcase Stage */}
+          {/* Right Column: Hero Vehicle Showcase */}
           <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
             <div style={{
               position: 'relative',
               width: '100%',
-              borderRadius: '20px',
+              borderRadius: '12px',
               overflow: 'hidden',
-              boxShadow: '0 35px 80px -15px rgba(44, 24, 16, 0.18)',
-              border: '1px solid rgba(212, 175, 55, 0.35)',
+              boxShadow: '0 30px 70px -15px rgba(44, 24, 16, 0.15)',
+              border: '1px solid rgba(139, 105, 20, 0.25)',
               background: 'linear-gradient(180deg, #FAF5EE 0%, #F0E5D4 100%)',
               padding: '24px 20px 0'
             }}>
               <img
                 src="/images/vehicle_view_front_34.png"
-                alt="Eternal Repos Purpose-Built Ceremonial Truck"
+                alt="The Eternal Ceremonial Vehicle"
                 style={{
                   width: '100%',
                   height: 'auto',
@@ -181,42 +145,6 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
                   filter: 'drop-shadow(0 20px 30px rgba(44, 24, 16, 0.15))'
                 }}
               />
-
-              <div style={{
-                padding: '16px 24px',
-                backgroundColor: '#2C1810',
-                color: '#FDF8F0',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                margin: '16px -20px 0',
-                borderTop: '1px solid rgba(212, 175, 55, 0.4)'
-              }}>
-                <div>
-                  <span style={{ fontSize: '10px', letterSpacing: '0.2em', color: '#D4AF37', textTransform: 'uppercase', fontWeight: 700, display: 'block' }}>
-                    STATE-PROTOCOL APPROVED
-                  </span>
-                  <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '20px', color: '#FDF8F0', fontWeight: 500 }}>
-                    Ceremonial Sanctuary Suite
-                  </span>
-                </div>
-                <button
-                  onClick={() => setActiveTab('vehicle')}
-                  style={{
-                    backgroundColor: 'transparent',
-                    border: '1px solid rgba(212, 175, 55, 0.4)',
-                    color: '#D4AF37',
-                    padding: '6px 16px',
-                    borderRadius: '20px',
-                    fontSize: '11px',
-                    letterSpacing: '0.1em',
-                    textTransform: 'uppercase',
-                    cursor: 'pointer'
-                  }}
-                >
-                  View Details
-                </button>
-              </div>
             </div>
           </div>
 
@@ -226,7 +154,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
       {/* ==========================================
           2 · BRAND BELIEF (Why the brand exists)
          ========================================== */}
-      <section style={{ padding: '130px 40px', backgroundColor: '#FDF8F0' }}>
+      <section style={{ padding: '140px 40px', backgroundColor: '#FDF8F0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '16px' }}>
             WHY THE BRAND EXISTS
@@ -238,10 +166,21 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
             fontWeight: 400,
             lineHeight: 1.15,
             maxWidth: '900px',
-            marginBottom: '32px'
+            marginBottom: '20px'
           }}>
             A Final Journey Should Never Feel Improvised.
           </h2>
+
+          <p style={{
+            fontFamily: "'Cormorant Garamond', serif",
+            fontSize: '22px',
+            fontStyle: 'italic',
+            color: '#8B6914',
+            margin: '0 0 28px',
+            letterSpacing: '0.02em'
+          }}>
+            From Transport to Tribute.
+          </p>
 
           <p style={{
             fontFamily: "'Inter', sans-serif",
@@ -252,29 +191,28 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
             marginBottom: '60px',
             fontWeight: 300
           }}>
-            For decades, ceremonial transport has been relegated to repurposed utility vans and improvised arrangements. Eternal Repos was founded on the conviction that the transition of a loved one demands deliberate coachbuilding engineering, calm architectural privacy, and state-level protocol care.
+            For decades, ceremonial transport has been relegated to repurposed commercial vans and improvised arrangements. Eternal Repos was founded on the conviction that the transition of a loved one demands deliberate coachbuilding engineering, calm architectural privacy, and state-level protocol care.
           </p>
 
           <div style={{
-            borderRadius: '20px',
+            borderRadius: '8px',
             overflow: 'hidden',
-            border: '1px solid rgba(139, 105, 20, 0.25)',
-            boxShadow: '0 25px 60px rgba(44, 24, 16, 0.08)'
+            border: '1px solid rgba(139, 105, 20, 0.2)'
           }}>
             <img
               src="/images/eternal_ceremonial_exterior_1.png"
               alt="Eternal Repos Ceremonial Exterior"
-              style={{ width: '100%', height: 'auto', maxHeight: '560px', objectFit: 'cover', display: 'block' }}
+              style={{ width: '100%', height: 'auto', maxHeight: '580px', objectFit: 'cover', display: 'block' }}
             />
           </div>
         </div>
       </section>
 
       {/* ==========================================
-          3 · THREE DEFINING QUALITIES (Concise 2 Lines Each)
+          3 · THREE DEFINING QUALITIES (Editorial Numbered List)
          ========================================== */}
       <section style={{
-        padding: '130px 40px',
+        padding: '140px 40px',
         backgroundColor: '#F7F2E9',
         borderTop: '1px solid rgba(139, 105, 20, 0.2)',
         borderBottom: '1px solid rgba(139, 105, 20, 0.2)'
@@ -298,17 +236,17 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
               {
                 num: '01',
                 title: 'Designed for Families',
-                desc: 'A calmer space for reflection, prayer, and quiet remembrance.'
+                desc: 'A calmer environment for reflection and remembrance.'
               },
               {
                 num: '02',
                 title: 'Purpose-Built',
-                desc: 'Engineered specifically for ceremonial use from the ground up.'
+                desc: 'Engineered specifically for ceremonial use.'
               },
               {
                 num: '03',
                 title: 'Institution Ready',
-                desc: 'Reliable, hygienic, and professionally managed under SLA guarantees.'
+                desc: 'Structured for reliable and professional operations.'
               }
             ].map((pillar, i) => (
               <div key={i} style={{ borderTop: '2px solid #8B6914', paddingTop: '24px' }}>
@@ -328,9 +266,9 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
       </section>
 
       {/* ==========================================
-          4 · THE VEHICLE STORY (1 Image + 3 Features)
+          4 · THE VEHICLE STORY (1 Full-Width Image + 3 Features)
          ========================================== */}
-      <section style={{ padding: '130px 40px', backgroundColor: '#FDF8F0' }}>
+      <section style={{ padding: '140px 40px', backgroundColor: '#FDF8F0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           
           <div style={{ marginBottom: '50px' }}>
@@ -343,16 +281,15 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
           </div>
 
           <div style={{
-            borderRadius: '20px',
+            borderRadius: '8px',
             overflow: 'hidden',
-            border: '1px solid rgba(139, 105, 20, 0.25)',
-            boxShadow: '0 25px 60px rgba(44, 24, 16, 0.08)',
+            border: '1px solid rgba(139, 105, 20, 0.2)',
             marginBottom: '50px'
           }}>
             <img
               src="/images/eternal_hearse_light_theme.png"
-              alt="Eternal Repos Ceremonial Sanctuary Suite"
-              style={{ width: '100%', height: 'auto', maxHeight: '540px', objectFit: 'cover', display: 'block' }}
+              alt="The Eternal Ceremonial Vehicle"
+              style={{ width: '100%', height: 'auto', maxHeight: '560px', objectFit: 'cover', display: 'block' }}
             />
           </div>
 
@@ -362,9 +299,9 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
             gap: '40px'
           }}>
             {[
-              { title: 'Panoramic Viewing Glass', desc: '360° electrochromic smart glass offering privacy control or transparent ceremonial viewing.' },
+              { title: 'Panoramic Viewing Glass', desc: '360° electrochromic smart glass offering privacy control or transparent viewing.' },
               { title: 'Calm Climate Interior', desc: 'HEPA-14 atmosphere filtration with quiet temperature management.' },
-              { title: 'Precision Hydraulic Bier', desc: 'Electro-hydraulic whisper-quiet bier platform with automated smooth leveling suspension.' }
+              { title: 'Precision Hydraulic Bier', desc: 'Electro-hydraulic whisper-quiet bier platform with automated smooth leveling.' }
             ].map((feature, idx) => (
               <div key={idx} style={{ paddingLeft: '20px', borderLeft: '2px solid rgba(139, 105, 20, 0.3)' }}>
                 <h4 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '24px', color: '#2C1810', marginBottom: '8px', fontWeight: 500 }}>
@@ -381,10 +318,10 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
       </section>
 
       {/* ==========================================
-          5 · INSTITUTIONAL RELEVANCE (Editorial Numbered List, No Boxes)
+          5 · INSTITUTIONAL RELEVANCE (Restrained Dark Section)
          ========================================== */}
       <section style={{
-        padding: '130px 40px',
+        padding: '140px 40px',
         backgroundColor: '#2A140D',
         color: '#FDF8F0'
       }}>
@@ -395,36 +332,27 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
               INSTITUTIONAL RELEVANCE
             </span>
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(36px, 4.5vw, 54px)', color: '#FDF8F0', fontWeight: 400 }}>
-              The Operational Record
+              Who We Partner With
             </h2>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gap: '40px'
+          }}>
             {[
-              { num: '01', title: 'Purpose-Built Engineering', desc: 'Designed specifically for ceremonial mobility from chassis to interior sanctuary.' },
-              { num: '02', title: 'Institutional Reliability', desc: 'Structured for consistent professional use backed by dedicated fleet maintenance.' },
-              { num: '03', title: 'White-Glove Protocol', desc: 'Uniformed personnel trained in discreet institutional care and family etiquette.' },
-              { num: '04', title: 'Dedicated Coordination', desc: 'Proactive single point of contact for hospital administration and emergency dispatch.' }
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                style={{
-                  padding: '36px 0',
-                  borderTop: '1px solid rgba(139, 105, 20, 0.3)',
-                  display: 'grid',
-                  gridTemplateColumns: '80px 1.5fr 2.5fr',
-                  gap: '32px',
-                  alignItems: 'baseline'
-                }}
-              >
-                <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '28px', color: '#8B6914', fontWeight: 600 }}>
-                  {item.num}
-                </span>
-                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '26px', color: '#FDF8F0', margin: 0, fontWeight: 500 }}>
-                  {item.title}
+              { title: 'Flagship Hospitals', desc: 'Seamless discharge-to-sanctuary transport enhancing hospital protocol branding.' },
+              { title: 'Funeral Service Providers', desc: 'Turnkey fleet capability expansion under white-glove professional SLAs.' },
+              { title: 'Municipal Corporations', desc: 'Civic fleet modernization replacing legacy vehicles with dignified suites.' },
+              { title: 'Religious Trusts & NGOs', desc: 'Bespoke customization respecting sacred traditions and specific rites.' }
+            ].map((sector, i) => (
+              <div key={i} style={{ borderTop: '1px solid rgba(139, 105, 20, 0.4)', paddingTop: '24px' }}>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '24px', color: '#FDF8F0', marginBottom: '12px', fontWeight: 500 }}>
+                  {sector.title}
                 </h3>
-                <p style={{ fontSize: '15.5px', color: '#D9CBBE', lineHeight: 1.7, margin: 0, fontWeight: 300 }}>
-                  {item.desc}
+                <p style={{ fontSize: '15px', color: '#D9CBBE', lineHeight: 1.7, margin: 0, fontWeight: 300 }}>
+                  {sector.desc}
                 </p>
               </div>
             ))}
@@ -437,7 +365,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
           6 · PARTNERSHIP CALL TO ACTION
          ========================================== */}
       <section style={{
-        padding: '130px 40px',
+        padding: '140px 40px',
         backgroundColor: '#FDF8F0',
         textAlign: 'center',
         borderTop: '1px solid rgba(139, 105, 20, 0.2)'
@@ -480,8 +408,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
                 textTransform: 'uppercase',
                 border: 'none',
                 cursor: 'pointer',
-                boxShadow: '0 10px 30px rgba(139, 105, 20, 0.25)',
-                transition: 'all 0.3s ease'
+                boxShadow: '0 10px 30px rgba(139, 105, 20, 0.25)'
               }}
             >
               Request a Demonstration
@@ -501,8 +428,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
                 textTransform: 'uppercase',
                 border: '1px solid rgba(139, 105, 20, 0.35)',
                 cursor: 'pointer',
-                boxShadow: '0 8px 20px rgba(44, 24, 16, 0.05)',
-                transition: 'all 0.3s ease'
+                boxShadow: '0 8px 20px rgba(44, 24, 16, 0.05)'
               }}
             >
               Speak With Our Team

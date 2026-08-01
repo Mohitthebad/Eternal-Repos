@@ -37,7 +37,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
       
       {/* 1. HERO SECTION */}
       <section style={{
-        padding: '130px 40px 90px',
+        padding: '140px 40px 100px',
         backgroundColor: '#FDF8F0',
         borderBottom: '1px solid rgba(139, 105, 20, 0.2)'
       }}>
@@ -65,7 +65,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
             margin: '0 0 24px',
             letterSpacing: '0.02em'
           }}>
-            Built for Operational Readiness.
+            Designed for Operational Readiness.
           </p>
 
           <p style={{
@@ -127,10 +127,9 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
           </div>
 
           <div style={{
-            borderRadius: '20px',
+            borderRadius: '8px',
             overflow: 'hidden',
-            border: '1px solid rgba(139, 105, 20, 0.25)',
-            boxShadow: '0 25px 60px rgba(44, 24, 16, 0.08)'
+            border: '1px solid rgba(139, 105, 20, 0.2)'
           }}>
             <img
               src="/images/eternal_ceremonial_exterior_1.png"
@@ -142,7 +141,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
       </section>
 
       {/* 2. FOUR FULL-WIDTH SECTOR ROWS */}
-      <section style={{ padding: '130px 40px', backgroundColor: '#FDF8F0' }}>
+      <section style={{ padding: '140px 40px', backgroundColor: '#FDF8F0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           
           <div style={{ marginBottom: '60px' }}>
@@ -215,7 +214,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
 
       {/* 3. DARK STANDARDS SECTION (Verifiable operational commitments) */}
       <section style={{
-        padding: '130px 40px',
+        padding: '140px 40px',
         backgroundColor: '#2A140D',
         color: '#FDF8F0'
       }}>
@@ -256,7 +255,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
       </section>
 
       {/* 4. SHORT DEMONSTRATION FORM WITH OPTIONAL NOTE FIELD */}
-      <section style={{ padding: '130px 40px', backgroundColor: '#FDF8F0' }}>
+      <section style={{ padding: '140px 40px', backgroundColor: '#FDF8F0' }}>
         <div style={{ maxWidth: '720px', margin: '0 auto' }}>
           
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
@@ -274,7 +273,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
           {formSubmitted ? (
             <div style={{
               backgroundColor: '#FFFFFF',
-              borderRadius: '16px',
+              borderRadius: '12px',
               padding: '48px',
               border: '1px solid #8B6914',
               textAlign: 'center'
@@ -290,10 +289,10 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
           ) : (
             <form onSubmit={handleSubmit} style={{
               backgroundColor: '#FFFFFF',
-              borderRadius: '20px',
-              padding: '48px',
+              borderRadius: '12px',
+              padding: '44px',
               border: '1px solid rgba(139, 105, 20, 0.25)',
-              boxShadow: '0 20px 50px rgba(44, 24, 16, 0.05)',
+              boxShadow: '0 16px 40px rgba(44, 24, 16, 0.04)',
               display: 'flex',
               flexDirection: 'column',
               gap: '24px'
@@ -311,7 +310,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
                   style={{
                     width: '100%',
                     padding: '14px 18px',
-                    borderRadius: '10px',
+                    borderRadius: '8px',
                     border: '1px solid rgba(139, 105, 20, 0.3)',
                     backgroundColor: '#FDF8F0',
                     fontSize: '15px',
@@ -335,7 +334,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
                     style={{
                       width: '100%',
                       padding: '14px 18px',
-                      borderRadius: '10px',
+                      borderRadius: '8px',
                       border: '1px solid rgba(139, 105, 20, 0.3)',
                       backgroundColor: '#FDF8F0',
                       fontSize: '15px',
@@ -358,7 +357,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
                     style={{
                       width: '100%',
                       padding: '14px 18px',
-                      borderRadius: '10px',
+                      borderRadius: '8px',
                       border: '1px solid rgba(139, 105, 20, 0.3)',
                       backgroundColor: '#FDF8F0',
                       fontSize: '15px',
@@ -383,7 +382,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
                     style={{
                       width: '100%',
                       padding: '14px 18px',
-                      borderRadius: '10px',
+                      borderRadius: '8px',
                       border: '1px solid rgba(139, 105, 20, 0.3)',
                       backgroundColor: '#FDF8F0',
                       fontSize: '15px',
@@ -405,7 +404,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
                     style={{
                       width: '100%',
                       padding: '14px 18px',
-                      borderRadius: '10px',
+                      borderRadius: '8px',
                       border: '1px solid rgba(139, 105, 20, 0.3)',
                       backgroundColor: '#FDF8F0',
                       fontSize: '15px',
@@ -428,7 +427,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
                   style={{
                     width: '100%',
                     padding: '14px 18px',
-                    borderRadius: '10px',
+                    borderRadius: '8px',
                     border: '1px solid rgba(139, 105, 20, 0.3)',
                     backgroundColor: '#FDF8F0',
                     fontSize: '15px',
@@ -445,7 +444,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
                   backgroundColor: '#8B6914',
                   color: '#FDF8F0',
                   padding: '16px',
-                  borderRadius: '12px',
+                  borderRadius: '8px',
                   fontFamily: "'Inter', sans-serif",
                   fontSize: '13.5px',
                   letterSpacing: '0.1em',
@@ -454,8 +453,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
                   border: 'none',
                   cursor: 'pointer',
                   marginTop: '8px',
-                  boxShadow: '0 10px 25px rgba(139, 105, 20, 0.25)',
-                  transition: 'all 0.3s ease'
+                  boxShadow: '0 8px 20px rgba(139, 105, 20, 0.25)'
                 }}
               >
                 Submit Demonstration Request
