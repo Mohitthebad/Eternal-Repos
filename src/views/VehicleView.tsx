@@ -13,13 +13,13 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
       
       {/* 1. HERO SECTION */}
       <section style={{
-        padding: '140px 40px 100px',
+        padding: '130px 40px 90px',
         backgroundColor: '#FDF8F0',
         borderBottom: '1px solid rgba(139, 105, 20, 0.2)'
       }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '16px' }}>
-            THE CEREMONIAL SANCTUARY SUITE
+            THE ETERNAL CEREMONIAL VEHICLE
           </span>
           <h1 style={{
             fontFamily: "'Cormorant Garamond', serif",
@@ -74,7 +74,7 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
           }}>
             <img
               src="/images/eternal_hearse_light_theme.png"
-              alt="Eternal Repos Purpose-Built Ceremonial Hearse"
+              alt="The Eternal Ceremonial Vehicle"
               style={{ width: '100%', height: 'auto', maxHeight: '600px', objectFit: 'cover', display: 'block' }}
             />
           </div>
@@ -82,7 +82,7 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
       </section>
 
       {/* 2. STORY SECTION 1: QUIET BY DESIGN */}
-      <section style={{ padding: '140px 40px', backgroundColor: '#FDF8F0' }}>
+      <section style={{ padding: '130px 40px', backgroundColor: '#FDF8F0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           <div style={{
             display: 'grid',
@@ -92,7 +92,7 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
           }}>
             <div>
               <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '12px' }}>
-                ACOUSTIC ENGINEERING
+                ACOUSTIC ISOLATION
               </span>
               <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(36px, 4.2vw, 52px)', color: '#2C1810', marginBottom: '20px', fontWeight: 400 }}>
                 Quiet by Design
@@ -121,9 +121,9 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
         </div>
       </section>
 
-      {/* 3. STORY SECTION 2: DESIGNED FOR CEREMONY */}
+      {/* 3. STORY SECTION 2: THE SANCTUARY INTERIOR */}
       <section style={{
-        padding: '140px 40px',
+        padding: '130px 40px',
         backgroundColor: '#F7F2E9',
         borderTop: '1px solid rgba(139, 105, 20, 0.2)',
         borderBottom: '1px solid rgba(139, 105, 20, 0.2)'
@@ -138,17 +138,17 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
             <div style={{ borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(139, 105, 20, 0.25)' }}>
               <img
                 src="/images/eternal_bier_sanctuary.png"
-                alt="Patented Electro-Hydraulic Bier Platform"
+                alt="The Sanctuary Interior"
                 style={{ width: '100%', height: 'auto', maxHeight: '480px', objectFit: 'cover', display: 'block' }}
               />
             </div>
 
             <div>
               <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '12px' }}>
-                MECHANICAL REVERENCE
+                THE SANCTUARY INTERIOR
               </span>
               <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(36px, 4.2vw, 52px)', color: '#2C1810', marginBottom: '20px', fontWeight: 400 }}>
-                Designed for Ceremony
+                A Calm Space for Families
               </h2>
               <p style={{ fontSize: '17px', color: '#5C4E43', lineHeight: 1.85, fontWeight: 300, marginBottom: '28px' }}>
                 Every mechanical interaction is automated and silent. The patented electro-hydraulic bier elevates seamlessly, avoiding awkward manual handling.
@@ -166,23 +166,23 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
         </div>
       </section>
 
-      {/* 4. REFINED SPECIFICATIONS TABLE */}
-      <section style={{ padding: '140px 40px', backgroundColor: '#FDF8F0' }}>
+      {/* 4. REFINED TECHNICAL SPECIFICATIONS TABLE (No ratings or star language) */}
+      <section style={{ padding: '130px 40px', backgroundColor: '#FDF8F0' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
             <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '12px' }}>
               TECHNICAL DATA
             </span>
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(36px, 4.2vw, 54px)', color: '#2C1810', fontWeight: 400 }}>
-              Vehicle Specifications
+              Technical Specifications
             </h2>
           </div>
 
           <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginBottom: '40px' }}>
             {[
               { id: 'architecture', label: 'Architecture & Frame' },
-              { id: 'sanctuary', label: 'Sanctuary Suite' },
-              { id: 'safety', label: 'Safety & Hygiene' }
+              { id: 'sanctuary', label: 'The Sanctuary' },
+              { id: 'safety', label: 'Hygiene & Security' }
             ].map(tab => (
               <button
                 key={tab.id}
@@ -206,7 +206,6 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
             ))}
           </div>
 
-          {/* Refined Spec Table */}
           <div style={{
             backgroundColor: '#FFFFFF',
             borderRadius: '16px',
@@ -217,38 +216,41 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
             <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
               <tbody>
                 {activeTabSpec === 'architecture' && [
-                  ['Chassis Base', 'Custom Heavy-Duty Long Wheelbase Coach Chassis'],
-                  ['Engine & Drive', 'Refined Low-Vibration Diesel Engine with Air Suspension'],
-                  ['Overall Length', '6,200 mm Extended Coach Body'],
-                  ['Viewing Glass', '360° Electrochromic Dimmable Smart Glass']
-                ].map(([label, val], idx) => (
+                  ['Chassis Architecture', 'Custom Long Wheelbase Heavy-Duty Coach Platform', 'Standard specification'],
+                  ['Engine & Suspension', 'Low-Vibration Diesel Engine with Air Suspension', 'Standard specification'],
+                  ['Overall Length', '6,200 mm Extended Coach Body', 'Standard specification'],
+                  ['Viewing Chamber', '360° Electrochromic Dimmable Smart Glass', 'Included configuration']
+                ].map(([label, val, cat], idx) => (
                   <tr key={idx} style={{ borderBottom: '1px solid rgba(139, 105, 20, 0.15)' }}>
-                    <td style={{ padding: '20px 28px', color: '#8B6914', fontWeight: 600, width: '40%', fontSize: '15px' }}>{label}</td>
-                    <td style={{ padding: '20px 28px', color: '#2C1810', fontSize: '15px', fontWeight: 300 }}>{val}</td>
+                    <td style={{ padding: '20px 28px', color: '#8B6914', fontWeight: 600, width: '35%', fontSize: '15px' }}>{label}</td>
+                    <td style={{ padding: '20px 28px', color: '#2C1810', fontSize: '15px', fontWeight: 300, width: '45%' }}>{val}</td>
+                    <td style={{ padding: '20px 28px', color: '#736458', fontSize: '12px', letterSpacing: '0.08em', textTransform: 'uppercase', width: '20%' }}>{cat}</td>
                   </tr>
                 ))}
 
                 {activeTabSpec === 'sanctuary' && [
-                  ['Bier Mechanism', 'Patented Electro-Hydraulic Whisper Elevation'],
-                  ['Atmosphere Control', 'HEPA-14 Air Sterilization & Quiet Multi-Zone AC'],
-                  ['Seating Suite', 'Hand-Stitched Leather Family Lounge (4 Passengers)'],
-                  ['Illumination', 'Warm Architectural Indirect LED Strip Lighting']
-                ].map(([label, val], idx) => (
+                  ['Bier Elevation', 'Patented Electro-Hydraulic Whisper Mechanism', 'Included configuration'],
+                  ['Atmosphere Control', 'HEPA-14 Air Sterilization & Multi-Zone Temperature Management', 'Standard specification'],
+                  ['Seating Area', 'Hand-Stitched Leather Family Seating Suite', 'Standard specification'],
+                  ['Interior Illumination', 'Warm Indirect Dimmable LED Strip Lighting', 'Included configuration']
+                ].map(([label, val, cat], idx) => (
                   <tr key={idx} style={{ borderBottom: '1px solid rgba(139, 105, 20, 0.15)' }}>
-                    <td style={{ padding: '20px 28px', color: '#8B6914', fontWeight: 600, width: '40%', fontSize: '15px' }}>{label}</td>
-                    <td style={{ padding: '20px 28px', color: '#2C1810', fontSize: '15px', fontWeight: 300 }}>{val}</td>
+                    <td style={{ padding: '20px 28px', color: '#8B6914', fontWeight: 600, width: '35%', fontSize: '15px' }}>{label}</td>
+                    <td style={{ padding: '20px 28px', color: '#2C1810', fontSize: '15px', fontWeight: 300, width: '45%' }}>{val}</td>
+                    <td style={{ padding: '20px 28px', color: '#736458', fontSize: '12px', letterSpacing: '0.08em', textTransform: 'uppercase', width: '20%' }}>{cat}</td>
                   </tr>
                 ))}
 
                 {activeTabSpec === 'safety' && [
-                  ['Sanitization Protocol', 'Medical-Grade UV-C & Antimicrobial Surface Treatment'],
-                  ['Security Features', 'GPS Tracking, Escort Radio Integration & Rear Cam'],
-                  ['SLA Readiness', '100% Operational Uptime Backed by 24/7 AMC Maintenance'],
-                  ['Protocol Attire', 'White-Glove Uniformed Drivers & Chaperones']
-                ].map(([label, val], idx) => (
+                  ['Hygiene Standard', 'Hospital-Grade UV-C & Antimicrobial Surface Sanitization', 'Standard specification'],
+                  ['Security Features', 'GPS Tracking & Integrated Escort Coordination', 'Standard specification'],
+                  ['Operational Readiness', 'Structured Fleet Maintenance Program', 'Institutional option'],
+                  ['Chaperone Attire', 'White-Glove Uniformed Attire', 'Standard specification']
+                ].map(([label, val, cat], idx) => (
                   <tr key={idx} style={{ borderBottom: '1px solid rgba(139, 105, 20, 0.15)' }}>
-                    <td style={{ padding: '20px 28px', color: '#8B6914', fontWeight: 600, width: '40%', fontSize: '15px' }}>{label}</td>
-                    <td style={{ padding: '20px 28px', color: '#2C1810', fontSize: '15px', fontWeight: 300 }}>{val}</td>
+                    <td style={{ padding: '20px 28px', color: '#8B6914', fontWeight: 600, width: '35%', fontSize: '15px' }}>{label}</td>
+                    <td style={{ padding: '20px 28px', color: '#2C1810', fontSize: '15px', fontWeight: 300, width: '45%' }}>{val}</td>
+                    <td style={{ padding: '20px 28px', color: '#736458', fontSize: '12px', letterSpacing: '0.08em', textTransform: 'uppercase', width: '20%' }}>{cat}</td>
                   </tr>
                 ))}
               </tbody>
@@ -259,14 +261,14 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
 
       {/* 5. FINAL CALL TO ACTION */}
       <section style={{
-        padding: '140px 40px',
+        padding: '130px 40px',
         backgroundColor: '#2A140D',
         color: '#FDF8F0',
         textAlign: 'center'
       }}>
         <div style={{ maxWidth: '860px', margin: '0 auto' }}>
           <span style={{ color: '#8B6914', fontSize: '11px', letterSpacing: '0.3em', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '16px' }}>
-            INSPECTION & DEMONSTRATION
+            DEMONSTRATION & INSPECTION
           </span>
           <h2 style={{
             fontFamily: "'Cormorant Garamond', serif",
@@ -284,7 +286,7 @@ export const VehicleView: React.FC<VehicleViewProps> = ({ openConciergeModal }) 
             marginBottom: '44px',
             fontWeight: 300
           }}>
-            Schedule a private demonstration or vehicle inspection with our protocol team in Delhi NCR.
+            Schedule a demonstration or vehicle inspection with our protocol team in Delhi NCR.
           </p>
 
           <button

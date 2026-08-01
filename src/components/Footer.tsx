@@ -69,26 +69,15 @@ export const Footer: React.FC<FooterProps> = ({ activeTab, setActiveTab, openCon
                 />
               </div>
 
-              {/* BRAND TAGLINE - Pull quote italicised serif */}
-              <p className="pull-quote" style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontSize: '16px',
-                fontStyle: 'italic',
-                color: '#8B6914',
-                lineHeight: 1.3,
-                marginBottom: '6px',
-                maxWidth: '420px'
-              }}>
-                “From Utility to Legacy. From Transport to Tribute.”
-              </p>
-
               <p style={{
                 color: subtextColor,
-                fontSize: '13px',
+                fontSize: '13.5px',
                 maxWidth: '420px',
-                lineHeight: 1.55
+                lineHeight: 1.6,
+                fontWeight: 300,
+                marginTop: '10px'
               }}>
-                India’s pioneer in luxury funeral mobility. Purpose-built ceremonial hearse mobility for high-net-worth families, state protocols, and premier institutions across Delhi NCR.
+                Purpose-built ceremonial mobility for families and institutions across Delhi NCR.
               </p>
             </div>
 

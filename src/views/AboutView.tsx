@@ -20,7 +20,7 @@ export const AboutView: React.FC<AboutViewProps> = () => {
       
       {/* 1. HERO SECTION */}
       <section style={{
-        padding: '140px 40px 100px',
+        padding: '130px 40px 90px',
         backgroundColor: '#FDF8F0',
         borderBottom: '1px solid rgba(139, 105, 20, 0.2)'
       }}>
@@ -61,14 +61,14 @@ export const AboutView: React.FC<AboutViewProps> = () => {
             <img
               src="/images/craftsmanship.png"
               alt="Eternal Repos Bespoke Coachbuilding Craftsmanship"
-              style={{ width: '100%', height: 'auto', maxHeight: '560px', objectFit: 'cover', display: 'block' }}
+              style={{ width: '100%', height: 'auto', maxHeight: '540px', objectFit: 'cover', display: 'block' }}
             />
           </div>
         </div>
       </section>
 
       {/* 2. ORIGIN: WHY ETERNAL REPOS EXISTS */}
-      <section style={{ padding: '140px 40px', backgroundColor: '#FDF8F0' }}>
+      <section style={{ padding: '130px 40px', backgroundColor: '#FDF8F0' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '16px' }}>
             THE ORIGIN STORY
@@ -90,9 +90,62 @@ export const AboutView: React.FC<AboutViewProps> = () => {
         </div>
       </section>
 
-      {/* 3. BELIEF STATEMENT (Dark Section) */}
+      {/* 3. SOPHISTICATED COMPARISON (What families experience vs The Eternal Standard) */}
       <section style={{
-        padding: '140px 40px',
+        padding: '130px 40px',
+        backgroundColor: '#F7F2E9',
+        borderTop: '1px solid rgba(139, 105, 20, 0.2)',
+        borderBottom: '1px solid rgba(139, 105, 20, 0.2)'
+      }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '70px' }}>
+            <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '12px' }}>
+              THE EVOLUTION OF CEREMONIAL MOBILITY
+            </span>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(36px, 4.2vw, 54px)', color: '#2C1810', fontWeight: 400 }}>
+              Raising the Benchmark
+            </h2>
+          </div>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+            gap: '60px'
+          }}>
+            <div style={{ borderTop: '2px solid rgba(139, 105, 20, 0.3)', paddingTop: '28px' }}>
+              <span style={{ fontSize: '11px', letterSpacing: '0.2em', color: '#736458', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '16px' }}>
+                WHAT FAMILIES OFTEN EXPERIENCE
+              </span>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                {['Adapted commercial vehicles', 'Limited environmental control', 'Inconsistent presentation', 'Fragmented coordination'].map((item, idx) => (
+                  <li key={idx} style={{ fontSize: '16px', color: '#5C4E43', fontWeight: 300, display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: '#736458' }} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div style={{ borderTop: '2px solid #8B6914', paddingTop: '28px' }}>
+              <span style={{ fontSize: '11px', letterSpacing: '0.2em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '16px' }}>
+                THE ETERNAL STANDARD
+              </span>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                {['Purpose-built architecture', 'Calm, climate-managed interiors', 'Consistent professional presentation', 'Structured institutional coordination'].map((item, idx) => (
+                  <li key={idx} style={{ fontSize: '16px', color: '#2C1810', fontWeight: 500, display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#8B6914' }} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. BELIEF STATEMENT (Dark Section) */}
+      <section style={{
+        padding: '130px 40px',
         backgroundColor: '#2A140D',
         color: '#FDF8F0',
         textAlign: 'center'
@@ -114,8 +167,8 @@ export const AboutView: React.FC<AboutViewProps> = () => {
         </div>
       </section>
 
-      {/* 4. VISION AND MISSION (Two Clean Editorial Columns Only) */}
-      <section style={{ padding: '140px 40px', backgroundColor: '#FDF8F0' }}>
+      {/* 5. VISION AND MISSION (Two Clean Editorial Columns) */}
+      <section style={{ padding: '130px 40px', backgroundColor: '#FDF8F0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           <div style={{
             display: 'grid',
@@ -142,7 +195,7 @@ export const AboutView: React.FC<AboutViewProps> = () => {
                 Uncompromised Reverence
               </h3>
               <p style={{ fontSize: '16.5px', color: '#5C4E43', lineHeight: 1.85, fontWeight: 300, margin: 0 }}>
-                To combine world-class coachbuilding precision with zero-failure SLA fleet management, bringing calm, discretion, and respect to every family journey.
+                To combine coachbuilding precision with structured fleet management, bringing calm, discretion, and respect to every family journey.
               </p>
             </div>
           </div>

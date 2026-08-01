@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, MapPin } from 'lucide-react';
 
 interface ContactViewProps {
   openConciergeModal?: () => void;
@@ -26,7 +26,7 @@ export const ContactView: React.FC<ContactViewProps> = () => {
       
       {/* HERO SECTION */}
       <section style={{
-        padding: '140px 40px 100px',
+        padding: '130px 40px 90px',
         backgroundColor: '#FDF8F0',
         borderBottom: '1px solid rgba(139, 105, 20, 0.2)'
       }}>
@@ -55,13 +55,13 @@ export const ContactView: React.FC<ContactViewProps> = () => {
             fontWeight: 300,
             margin: 0
           }}>
-            Whether you require an emergency protocol response, a fleet demonstration for your institution, or a private consultation, our team is available 24/7.
+            Whether you require an emergency protocol response, a fleet demonstration for your institution, or a private consultation, our team is available across Delhi NCR.
           </p>
         </div>
       </section>
 
       {/* 3 SIMPLE ROWS & FORM */}
-      <section style={{ padding: '100px 40px 140px', backgroundColor: '#FDF8F0' }}>
+      <section style={{ padding: '100px 40px 130px', backgroundColor: '#FDF8F0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           
           <div style={{
@@ -71,52 +71,72 @@ export const ContactView: React.FC<ContactViewProps> = () => {
             alignItems: 'start'
           }}>
             
-            {/* Left: 3 Simple Text Rows */}
+            {/* Left: 3 Simple Text Rows + Coverage Box */}
             <div>
               <span style={{ fontSize: '11px', letterSpacing: '0.25em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '32px' }}>
                 DIRECT CONTACT CHANNELS
               </span>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', marginBottom: '48px' }}>
                 <div style={{ borderBottom: '1px solid rgba(139, 105, 20, 0.2)', paddingBottom: '24px' }}>
                   <span style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#8B6914', fontWeight: 600, display: 'block', marginBottom: '8px' }}>
-                    24/7 DEDICATED PROTOCOL LINE
+                    URGENT OPERATIONAL SUPPORT (24/7 HOTLINE)
                   </span>
                   <a href="tel:+919876543210" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '28px', color: '#2C1810', textDecoration: 'none', fontWeight: 500 }}>
                     +91 98765 43210
                   </a>
                   <p style={{ fontSize: '14px', color: '#5C4E43', margin: '6px 0 0', fontWeight: 300 }}>
-                    Immediate emergency dispatch & concierge response
+                    24/7 immediate emergency dispatch & concierge response
                   </p>
                 </div>
 
                 <div style={{ borderBottom: '1px solid rgba(139, 105, 20, 0.2)', paddingBottom: '24px' }}>
                   <span style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#8B6914', fontWeight: 600, display: 'block', marginBottom: '8px' }}>
-                    INSTITUTIONAL DESK
+                    GENERAL & INSTITUTIONAL ENQUIRIES
                   </span>
                   <a href="mailto:concierge@eternalrepos.com" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '28px', color: '#2C1810', textDecoration: 'none', fontWeight: 500 }}>
                     concierge@eternalrepos.com
                   </a>
                   <p style={{ fontSize: '14px', color: '#5C4E43', margin: '6px 0 0', fontWeight: 300 }}>
-                    Enterprise leasing, AMC inquiries & CXO briefings
+                    Response within one business day for leasing & partnership briefings
                   </p>
                 </div>
 
                 <div>
                   <span style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#8B6914', fontWeight: 600, display: 'block', marginBottom: '8px' }}>
-                    OPERATIONAL REGION
+                    OPERATIONAL COVERAGE
                   </span>
                   <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '28px', color: '#2C1810', fontWeight: 500 }}>
                     Delhi NCR & Sovereign Protocol
                   </div>
                   <p style={{ fontSize: '14px', color: '#5C4E43', margin: '6px 0 0', fontWeight: 300 }}>
-                    Full operational coverage across New Delhi, Gurgaon, Noida & diplomatic routes
+                    New Delhi, Gurgaon, Noida, Ghaziabad & Diplomatic Airport Routes
                   </p>
                 </div>
               </div>
+
+              {/* Operational Location Info Box (Replacing blank map) */}
+              <div style={{
+                backgroundColor: '#FFFFFF',
+                borderRadius: '16px',
+                padding: '28px',
+                border: '1px solid rgba(139, 105, 20, 0.25)',
+                boxShadow: '0 10px 30px rgba(44, 24, 16, 0.04)'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+                  <MapPin size={18} color="#8B6914" />
+                  <h4 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '22px', color: '#2C1810', margin: 0, fontWeight: 500 }}>
+                    Central Dispatch Hub
+                  </h4>
+                </div>
+                <p style={{ fontSize: '14.5px', color: '#5C4E43', lineHeight: 1.7, margin: 0, fontWeight: 300 }}>
+                  Azimuth Business on Wheels · Delhi NCR Protocol Division<br />
+                  Dedicated dispatch terminals serving major tertiary hospital networks & international repatriation terminals.
+                </p>
+              </div>
             </div>
 
-            {/* Right: Enquiry Form */}
+            {/* Right: Streamlined Enquiry Form */}
             <div>
               {submitted ? (
                 <div style={{
@@ -138,12 +158,12 @@ export const ContactView: React.FC<ContactViewProps> = () => {
                 <form onSubmit={handleSubmit} style={{
                   backgroundColor: '#FFFFFF',
                   borderRadius: '20px',
-                  padding: '48px',
+                  padding: '44px',
                   border: '1px solid rgba(139, 105, 20, 0.25)',
                   boxShadow: '0 20px 50px rgba(44, 24, 16, 0.05)',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '24px'
+                  gap: '20px'
                 }}>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                     <div>

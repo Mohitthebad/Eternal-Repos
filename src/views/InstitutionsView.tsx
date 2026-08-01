@@ -23,7 +23,8 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
     contactName: '',
     workEmail: '',
     phone: '',
-    preferredDate: ''
+    preferredDate: '',
+    additionalRequirements: ''
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -36,7 +37,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
       
       {/* 1. HERO SECTION */}
       <section style={{
-        padding: '140px 40px 100px',
+        padding: '130px 40px 90px',
         backgroundColor: '#FDF8F0',
         borderBottom: '1px solid rgba(139, 105, 20, 0.2)'
       }}>
@@ -50,11 +51,22 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
             color: '#2C1810',
             fontWeight: 400,
             lineHeight: 1.15,
-            marginBottom: '28px',
+            marginBottom: '20px',
             maxWidth: '900px'
           }}>
-            A Higher Standard of Ceremonial Mobility.
+            A Higher Standard for Institutional Mobility.
           </h1>
+
+          <p style={{
+            fontFamily: "'Cormorant Garamond', serif",
+            fontSize: '22px',
+            fontStyle: 'italic',
+            color: '#8B6914',
+            margin: '0 0 24px',
+            letterSpacing: '0.02em'
+          }}>
+            Built for Operational Readiness.
+          </p>
 
           <p style={{
             fontFamily: "'Inter', sans-serif",
@@ -68,7 +80,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
             Eternal Repos partners with flagship multi-specialty hospitals, municipal corporations, diplomatic protocols, and religious trusts to deliver purpose-built ceremonial mobility under structured operational guarantees.
           </p>
 
-          <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginBottom: '60px' }}>
             <button
               onClick={openBrochureModal}
               style={{
@@ -110,14 +122,27 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
                 boxShadow: '0 8px 20px rgba(44, 24, 16, 0.05)'
               }}
             >
-              Schedule a Leadership Briefing
+              Schedule an Institutional Briefing
             </button>
+          </div>
+
+          <div style={{
+            borderRadius: '20px',
+            overflow: 'hidden',
+            border: '1px solid rgba(139, 105, 20, 0.25)',
+            boxShadow: '0 25px 60px rgba(44, 24, 16, 0.08)'
+          }}>
+            <img
+              src="/images/eternal_ceremonial_exterior_1.png"
+              alt="Institutional Ceremonial Vehicle Handover"
+              style={{ width: '100%', height: 'auto', maxHeight: '540px', objectFit: 'cover', display: 'block' }}
+            />
           </div>
         </div>
       </section>
 
-      {/* 2. FOUR FULL-WIDTH SECTOR ROWS (Restrained editorial rows) */}
-      <section style={{ padding: '140px 40px', backgroundColor: '#FDF8F0' }}>
+      {/* 2. FOUR FULL-WIDTH SECTOR ROWS */}
+      <section style={{ padding: '130px 40px', backgroundColor: '#FDF8F0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           
           <div style={{ marginBottom: '60px' }}>
@@ -159,7 +184,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
               <div
                 key={idx}
                 style={{
-                  padding: '40px 0',
+                  padding: '36px 0',
                   borderTop: '1px solid rgba(139, 105, 20, 0.25)',
                   display: 'grid',
                   gridTemplateColumns: '80px 1fr 2fr',
@@ -188,20 +213,20 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
         </div>
       </section>
 
-      {/* 3. DARK STANDARDS SECTION */}
+      {/* 3. DARK STANDARDS SECTION (Verifiable operational commitments) */}
       <section style={{
-        padding: '140px 40px',
+        padding: '130px 40px',
         backgroundColor: '#2A140D',
         color: '#FDF8F0'
       }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           
-          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '70px' }}>
             <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '12px' }}>
-              INSTITUTIONAL RIGOR
+              OPERATIONAL COMMITMENTS
             </span>
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(36px, 4.5vw, 54px)', color: '#FDF8F0', fontWeight: 400 }}>
-              The Operational Standard
+              Documented Institutional Standards
             </h2>
           </div>
 
@@ -211,10 +236,10 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
             gap: '40px'
           }}>
             {[
-              { title: 'Operational Readiness', desc: 'Continuous fleet maintenance and structured uptime management for uninterrupted availability.' },
-              { title: 'Hygiene Protocols', desc: 'Hospital-grade UV-C sterilization and antimicrobial care after every ceremonial assignment.' },
-              { title: 'Professional Presentation', desc: 'Uniformed white-glove personnel trained in discreet protocol and institutional etiquette.' },
-              { title: 'Dedicated Coordination', desc: 'Single point of contact for hospital administration, emergency dispatch, and family liaison.' }
+              { title: 'Defined Dispatch Protocols', desc: 'Structured dispatch workflows with direct priority phone and email communication channels.' },
+              { title: 'Dedicated Institutional Coordination', desc: 'Single point of contact for hospital administration, emergency response, and family liaison.' },
+              { title: 'Preventive Fleet Maintenance', desc: 'Continuous mechanical inspections and structured maintenance schedules ensuring vehicle readiness.' },
+              { title: 'Documented Hygiene Standards', desc: 'Hospital-grade UV-C sterilization and antimicrobial surface sanitization protocols.' }
             ].map((std, i) => (
               <div key={i} style={{ borderTop: '1px solid rgba(139, 105, 20, 0.4)', paddingTop: '24px' }}>
                 <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '24px', color: '#FDF8F0', marginBottom: '12px', fontWeight: 500 }}>
@@ -230,8 +255,8 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
         </div>
       </section>
 
-      {/* 4. SHORT DEMONSTRATION FORM ONLY */}
-      <section style={{ padding: '140px 40px', backgroundColor: '#FDF8F0' }}>
+      {/* 4. SHORT DEMONSTRATION FORM WITH OPTIONAL NOTE FIELD */}
+      <section style={{ padding: '130px 40px', backgroundColor: '#FDF8F0' }}>
         <div style={{ maxWidth: '720px', margin: '0 auto' }}>
           
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
@@ -391,6 +416,29 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
                 </div>
               </div>
 
+              <div>
+                <label style={{ fontSize: '12px', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#8B6914', fontWeight: 600, display: 'block', marginBottom: '8px' }}>
+                  Additional Requirements <span style={{ textTransform: 'none', color: '#736458', fontWeight: 300 }}>(Optional)</span>
+                </label>
+                <textarea
+                  rows={3}
+                  placeholder="Fleet size, location notes, or specific briefing requests..."
+                  value={formData.additionalRequirements}
+                  onChange={e => setFormData({ ...formData, additionalRequirements: e.target.value })}
+                  style={{
+                    width: '100%',
+                    padding: '14px 18px',
+                    borderRadius: '10px',
+                    border: '1px solid rgba(139, 105, 20, 0.3)',
+                    backgroundColor: '#FDF8F0',
+                    fontSize: '15px',
+                    color: '#2C1810',
+                    outline: 'none',
+                    resize: 'none'
+                  }}
+                />
+              </div>
+
               <button
                 type="submit"
                 style={{
@@ -405,7 +453,7 @@ export const InstitutionsView: React.FC<InstitutionsViewProps> = ({ openConcierg
                   textTransform: 'uppercase',
                   border: 'none',
                   cursor: 'pointer',
-                  marginTop: '12px',
+                  marginTop: '8px',
                   boxShadow: '0 10px 25px rgba(139, 105, 20, 0.25)',
                   transition: 'all 0.3s ease'
                 }}

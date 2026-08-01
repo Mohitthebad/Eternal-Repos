@@ -16,7 +16,6 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Magnetic button helper
   const magnetRef = useRef<HTMLButtonElement>(null);
   const handleMagnet = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     const btn = magnetRef.current; if (!btn) return;
@@ -41,7 +40,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
     <div className="animate-fade-in" style={{ color: '#2C1810', backgroundColor: '#FDF8F0' }}>
       
       {/* ==========================================
-          1 · HERO SECTION (Refined Masterpiece)
+          1 · HERO SECTION (Refined Masterpiece & Clean Mobile Above-Fold)
          ========================================== */}
       <section style={{
         position: 'relative',
@@ -50,7 +49,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
         color: '#2C1810',
         display: 'flex',
         alignItems: 'center',
-        padding: '90px 40px',
+        padding: '90px 40px 70px',
         overflow: 'hidden',
         borderBottom: '1px solid rgba(139, 105, 20, 0.2)'
       }}>
@@ -101,22 +100,11 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
               lineHeight: 1.12,
               letterSpacing: '-0.01em',
               color: '#2C1810',
-              marginBottom: '16px'
+              marginBottom: '20px'
             }}>
               Every Final Journey <br />
               <span style={{ color: '#8B6914', fontStyle: 'italic' }}>Deserves Dignity.</span>
             </h1>
-
-            <p style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontSize: '22px',
-              fontStyle: 'italic',
-              color: '#8B6914',
-              margin: '0 0 20px',
-              letterSpacing: '0.02em'
-            }}>
-              From Transport to Tribute.
-            </p>
 
             <p style={{
               fontFamily: "'Inter', sans-serif",
@@ -135,7 +123,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
               alignItems: 'center',
               gap: '20px',
               flexWrap: 'wrap',
-              marginBottom: '40px'
+              marginBottom: '32px'
             }}>
               <button
                 ref={magnetRef}
@@ -165,51 +153,10 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
                 <span>Explore the Vehicle</span>
                 <ArrowRight size={16} color="#FDF8F0" />
               </button>
-
-              <button
-                onClick={openConciergeModal}
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  color: '#2C1810',
-                  padding: '15px 32px',
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: '13px',
-                  letterSpacing: '0.12em',
-                  fontWeight: 600,
-                  textTransform: 'uppercase',
-                  border: '1px solid rgba(139, 105, 20, 0.35)',
-                  borderRadius: '30px',
-                  boxShadow: '0 8px 20px rgba(44, 24, 16, 0.05)',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = '#8B6914';
-                  e.currentTarget.style.color = '#8B6914';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(139, 105, 20, 0.35)';
-                  e.currentTarget.style.color = '#2C1810';
-                }}
-              >
-                Speak With Our Team
-              </button>
-            </div>
-
-            <div style={{
-              fontSize: '11px',
-              letterSpacing: '0.14em',
-              textTransform: 'uppercase',
-              color: '#8B6914',
-              fontWeight: 600,
-              paddingTop: '20px',
-              borderTop: '1px solid rgba(139, 105, 20, 0.2)'
-            }}>
-              Designed in India · Built for Institutions · Serving Delhi NCR
             </div>
           </div>
 
-          {/* Right Column */}
+          {/* Right Column: Showcase Stage */}
           <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
             <div style={{
               position: 'relative',
@@ -227,7 +174,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
                 style={{
                   width: '100%',
                   height: 'auto',
-                  maxHeight: '520px',
+                  maxHeight: '480px',
                   objectFit: 'contain',
                   display: 'block',
                   margin: '0 auto',
@@ -277,12 +224,12 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
       </section>
 
       {/* ==========================================
-          2 · BRAND BELIEF (No cards, no icons)
+          2 · BRAND BELIEF (Why the brand exists)
          ========================================== */}
-      <section style={{ padding: '140px 40px', backgroundColor: '#FDF8F0' }}>
+      <section style={{ padding: '130px 40px', backgroundColor: '#FDF8F0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '16px' }}>
-            OUR BELIEF
+            WHY THE BRAND EXISTS
           </span>
           <h2 style={{
             fontFamily: "'Cormorant Garamond', serif",
@@ -317,25 +264,25 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
             <img
               src="/images/eternal_ceremonial_exterior_1.png"
               alt="Eternal Repos Ceremonial Exterior"
-              style={{ width: '100%', height: 'auto', maxHeight: '580px', objectFit: 'cover', display: 'block' }}
+              style={{ width: '100%', height: 'auto', maxHeight: '560px', objectFit: 'cover', display: 'block' }}
             />
           </div>
         </div>
       </section>
 
       {/* ==========================================
-          3 · THREE BRAND PILLARS (Clean Editorial Spreads)
+          3 · THREE DEFINING QUALITIES (Concise 2 Lines Each)
          ========================================== */}
       <section style={{
-        padding: '140px 40px',
+        padding: '130px 40px',
         backgroundColor: '#F7F2E9',
         borderTop: '1px solid rgba(139, 105, 20, 0.2)',
         borderBottom: '1px solid rgba(139, 105, 20, 0.2)'
       }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '70px' }}>
             <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '12px' }}>
-              THE THREE PILLARS
+              THREE DEFINING QUALITIES
             </span>
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(36px, 4.2vw, 54px)', color: '#2C1810', fontWeight: 400 }}>
               Engineered Around Dignity
@@ -351,27 +298,27 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
               {
                 num: '01',
                 title: 'Designed for Families',
-                desc: 'A calm, private environment for reflection, prayer, and remembrance — acoustically isolated and climate-controlled.'
+                desc: 'A calmer space for reflection, prayer, and quiet remembrance.'
               },
               {
                 num: '02',
                 title: 'Purpose-Built',
-                desc: 'Every feature is designed specifically for ceremonial use — from patented whisper hydraulics to electrochromic smart glass.'
+                desc: 'Engineered specifically for ceremonial use from the ground up.'
               },
               {
                 num: '03',
                 title: 'Institution Ready',
-                desc: 'Reliable, hygienic, and professionally managed for organisations that serve families every day under SLA guarantees.'
+                desc: 'Reliable, hygienic, and professionally managed under SLA guarantees.'
               }
             ].map((pillar, i) => (
-              <div key={i} style={{ borderTop: '2px solid #8B6914', paddingTop: '28px' }}>
-                <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '32px', color: '#8B6914', fontWeight: 600, display: 'block', marginBottom: '12px' }}>
+              <div key={i} style={{ borderTop: '2px solid #8B6914', paddingTop: '24px' }}>
+                <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '28px', color: '#8B6914', fontWeight: 600, display: 'block', marginBottom: '10px' }}>
                   {pillar.num}
                 </span>
-                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '28px', color: '#2C1810', marginBottom: '14px', fontWeight: 500 }}>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '26px', color: '#2C1810', marginBottom: '10px', fontWeight: 500 }}>
                   {pillar.title}
                 </h3>
-                <p style={{ fontSize: '16px', color: '#5C4E43', lineHeight: 1.8, fontWeight: 300, margin: 0 }}>
+                <p style={{ fontSize: '16px', color: '#5C4E43', lineHeight: 1.6, fontWeight: 300, margin: 0 }}>
                   {pillar.desc}
                 </p>
               </div>
@@ -381,14 +328,14 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
       </section>
 
       {/* ==========================================
-          4 · VEHICLE STORY (1 Image + 3 Features)
+          4 · THE VEHICLE STORY (1 Image + 3 Features)
          ========================================== */}
-      <section style={{ padding: '140px 40px', backgroundColor: '#FDF8F0' }}>
+      <section style={{ padding: '130px 40px', backgroundColor: '#FDF8F0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           
-          <div style={{ marginBottom: '60px' }}>
+          <div style={{ marginBottom: '50px' }}>
             <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '12px' }}>
-              THE VEHICLE STORY
+              THE VEHICLE
             </span>
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(38px, 4.5vw, 56px)', color: '#2C1810', fontWeight: 400 }}>
               One Vehicle. One Standard. One Promise.
@@ -400,7 +347,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
             overflow: 'hidden',
             border: '1px solid rgba(139, 105, 20, 0.25)',
             boxShadow: '0 25px 60px rgba(44, 24, 16, 0.08)',
-            marginBottom: '60px'
+            marginBottom: '50px'
           }}>
             <img
               src="/images/eternal_hearse_light_theme.png"
@@ -416,11 +363,11 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
           }}>
             {[
               { title: 'Panoramic Viewing Glass', desc: '360° electrochromic smart glass offering privacy control or transparent ceremonial viewing.' },
-              { title: 'Calm Climate Interior', desc: 'HEPA-14 atmosphere filtration with independent multi-zone quiet temperature management.' },
+              { title: 'Calm Climate Interior', desc: 'HEPA-14 atmosphere filtration with quiet temperature management.' },
               { title: 'Precision Hydraulic Bier', desc: 'Electro-hydraulic whisper-quiet bier platform with automated smooth leveling suspension.' }
             ].map((feature, idx) => (
               <div key={idx} style={{ paddingLeft: '20px', borderLeft: '2px solid rgba(139, 105, 20, 0.3)' }}>
-                <h4 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '24px', color: '#2C1810', marginBottom: '10px', fontWeight: 500 }}>
+                <h4 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '24px', color: '#2C1810', marginBottom: '8px', fontWeight: 500 }}>
                   {feature.title}
                 </h4>
                 <p style={{ fontSize: '15px', color: '#5C4E43', lineHeight: 1.7, margin: 0, fontWeight: 300 }}>
@@ -434,41 +381,50 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
       </section>
 
       {/* ==========================================
-          5 · INSTITUTIONS (One Restrained Dark Section)
+          5 · INSTITUTIONAL RELEVANCE (Editorial Numbered List, No Boxes)
          ========================================== */}
       <section style={{
-        padding: '140px 40px',
+        padding: '130px 40px',
         backgroundColor: '#2A140D',
         color: '#FDF8F0'
       }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
           
-          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '70px' }}>
             <span style={{ fontSize: '11px', letterSpacing: '0.3em', color: '#8B6914', textTransform: 'uppercase', fontWeight: 700, display: 'block', marginBottom: '12px' }}>
-              ENTERPRISE & INSTITUTIONAL PARTNERSHIPS
+              INSTITUTIONAL RELEVANCE
             </span>
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(36px, 4.5vw, 54px)', color: '#FDF8F0', fontWeight: 400 }}>
-              Who We Partner With
+              The Operational Record
             </h2>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '40px'
-          }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
             {[
-              { title: 'Flagship Hospitals', desc: 'Seamless discharge-to-sanctuary transport enhancing hospital protocol branding.' },
-              { title: 'Funeral Service Providers', desc: 'Turnkey fleet capability expansion under white-glove professional SLAs.' },
-              { title: 'Municipal Corporations', desc: 'Civic fleet modernization replacing legacy vehicles with dignified suites.' },
-              { title: 'Religious Trusts & NGOs', desc: 'Bespoke customization respecting sacred traditions and specific ceremonial rites.' }
-            ].map((sector, i) => (
-              <div key={i} style={{ borderTop: '1px solid rgba(139, 105, 20, 0.4)', paddingTop: '24px' }}>
-                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '24px', color: '#FDF8F0', marginBottom: '12px', fontWeight: 500 }}>
-                  {sector.title}
+              { num: '01', title: 'Purpose-Built Engineering', desc: 'Designed specifically for ceremonial mobility from chassis to interior sanctuary.' },
+              { num: '02', title: 'Institutional Reliability', desc: 'Structured for consistent professional use backed by dedicated fleet maintenance.' },
+              { num: '03', title: 'White-Glove Protocol', desc: 'Uniformed personnel trained in discreet institutional care and family etiquette.' },
+              { num: '04', title: 'Dedicated Coordination', desc: 'Proactive single point of contact for hospital administration and emergency dispatch.' }
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                style={{
+                  padding: '36px 0',
+                  borderTop: '1px solid rgba(139, 105, 20, 0.3)',
+                  display: 'grid',
+                  gridTemplateColumns: '80px 1.5fr 2.5fr',
+                  gap: '32px',
+                  alignItems: 'baseline'
+                }}
+              >
+                <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '28px', color: '#8B6914', fontWeight: 600 }}>
+                  {item.num}
+                </span>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '26px', color: '#FDF8F0', margin: 0, fontWeight: 500 }}>
+                  {item.title}
                 </h3>
-                <p style={{ fontSize: '14.5px', color: '#D9CBBE', lineHeight: 1.7, margin: 0, fontWeight: 300 }}>
-                  {sector.desc}
+                <p style={{ fontSize: '15.5px', color: '#D9CBBE', lineHeight: 1.7, margin: 0, fontWeight: 300 }}>
+                  {item.desc}
                 </p>
               </div>
             ))}
@@ -478,10 +434,10 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
       </section>
 
       {/* ==========================================
-          6 · FINAL CALL TO ACTION
+          6 · PARTNERSHIP CALL TO ACTION
          ========================================== */}
       <section style={{
-        padding: '140px 40px',
+        padding: '130px 40px',
         backgroundColor: '#FDF8F0',
         textAlign: 'center',
         borderTop: '1px solid rgba(139, 105, 20, 0.2)'
