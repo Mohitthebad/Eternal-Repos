@@ -88,125 +88,258 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
     <div className="animate-fade-in" style={{ color: '#2C1810' }}>
       
       {/* ==========================================
-          1 · EDITORIAL HERO SECTION (Elevated India Style)
+          1 · EDITORIAL HERO SECTION (Elevated Luxury Style)
          ========================================== */}
-      {/* #7 Parallax bg orbs */}
-      <section style={{ position: 'relative', minHeight: '88vh', background: 'radial-gradient(140% 120% at 20% 20%, #FDF8F0 0%, #F8F3EA 50%, #EFE6D8 100%)', color: '#2C1810', display: 'flex', alignItems: 'center', padding: '80px 40px', overflow: 'hidden', borderBottom: '1px solid rgba(44, 24, 16, 0.08)' }}>
-        <div style={{ position: 'absolute', top: `calc(10% + ${scrollY * 0.2}px)`, right: '-10%', width: '600px', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(139,105,20,0.10) 0%, transparent 70%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: `calc(5% - ${scrollY * 0.15}px)`, left: '-5%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(212,175,55,0.07) 0%, transparent 65%)', pointerEvents: 'none' }} />
+      <section style={{
+        position: 'relative',
+        minHeight: '92vh',
+        background: 'radial-gradient(130% 110% at 50% 0%, #FDF8F0 0%, #F6EFE5 60%, #EFE5D6 100%)',
+        color: '#2C1810',
+        display: 'flex',
+        alignItems: 'center',
+        padding: '90px 40px',
+        overflow: 'hidden',
+        borderBottom: '1px solid rgba(139, 105, 20, 0.2)'
+      }}>
+        {/* Parallax Background Orbs */}
+        <div style={{
+          position: 'absolute',
+          top: `calc(10% + ${scrollY * 0.2}px)`,
+          right: '-5%',
+          width: '650px',
+          height: '650px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 70%)',
+          pointerEvents: 'none',
+          filter: 'blur(40px)'
+        }} />
+        <div style={{
+          position: 'absolute',
+          bottom: `calc(5% - ${scrollY * 0.15}px)`,
+          left: '-5%',
+          width: '450px',
+          height: '450px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(139, 105, 20, 0.08) 0%, transparent 65%)',
+          pointerEvents: 'none',
+          filter: 'blur(30px)'
+        }} />
+
         <div style={{
           maxWidth: '1380px',
           margin: '0 auto',
           width: '100%',
           display: 'grid',
-          gridTemplateColumns: '40% 60%',
+          gridTemplateColumns: '48% 52%',
           gap: '50px',
           alignItems: 'center'
         }} className="hero-split-grid">
           
-          {/* Left Column (40%): Brand Messaging & CTAs */}
+          {/* Left Column: Brand Messaging & CTAs */}
           <div style={{
             zIndex: 10,
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            alignItems: 'flex-start',
-            paddingRight: '16px'
+            alignItems: 'flex-start'
           }}>
-            {/* Eyebrow text */}
-            <div style={{ fontSize: '11px', letterSpacing: '0.22em', textTransform: 'uppercase', color: '#8B6914', fontWeight: 600, marginBottom: '24px' }}>
-              PURPOSE-BUILT CEREMONIAL MOBILITY · DELHI NCR
+            {/* Gold Foil Eyebrow Tag */}
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              backgroundColor: 'rgba(139, 105, 20, 0.08)',
+              padding: '6px 18px',
+              borderRadius: '20px',
+              border: '1px solid rgba(139, 105, 20, 0.3)',
+              marginBottom: '24px'
+            }}>
+              <span style={{ fontSize: '11px', letterSpacing: '0.22em', textTransform: 'uppercase', color: '#8B6914', fontWeight: 600 }}>
+                PURPOSE-BUILT CEREMONIAL MOBILITY · DELHI NCR
+              </span>
             </div>
 
-            {/* #16 Split-Letter + #20 Morphing Headline */}
-            <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(36px, 3.8vw, 56px)', fontWeight: 400, lineHeight: 1.15, letterSpacing: '-0.01em', color: '#2C1810', marginBottom: '16px', perspective: '600px' }}>
+            {/* Split-Letter + Morphing Headline */}
+            <h1 style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: 'clamp(38px, 4vw, 58px)',
+              fontWeight: 400,
+              lineHeight: 1.14,
+              letterSpacing: '-0.01em',
+              color: '#2C1810',
+              marginBottom: '18px',
+              perspective: '600px'
+            }}>
               <SplitLetters text="Every Final Journey" baseDelay={0.1} /><br />
               <span>Deserves </span>
-              <span className={morphClass} style={{ color: '#8B6914', fontStyle: 'italic', display: 'inline-block', minWidth: '140px' }}>
+              <span className={morphClass} style={{ color: '#8B6914', fontStyle: 'italic', display: 'inline-block', minWidth: '150px' }}>
                 {MORPH_WORDS[morphIdx]}
               </span>
             </h1>
 
-            {/* Supporting Copy */}
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: '16px', lineHeight: 1.8, color: '#2C1810', opacity: 0.9, maxWidth: '480px', marginBottom: '24px', fontWeight: 400 }}>
-              We believe the final journey deserves the same thoughtfulness, dignity, and care that we extend to every meaningful moment in life.
+            {/* Typewriter Brand Line */}
+            <p className="pull-quote" style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: '22px',
+              fontStyle: 'italic',
+              color: '#8B6914',
+              marginBottom: '20px',
+              letterSpacing: '0.02em',
+              minHeight: '32px'
+            }}>
+              {typeText}<span className="typewriter-cursor" />
             </p>
 
-            {/* #17 Typewriter Brand Line */}
-            <p className="pull-quote" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '20px', fontStyle: 'italic', color: '#8B6914', marginBottom: '36px', letterSpacing: '0.03em', minHeight: '30px' }}>
-              {typeText}<span className="typewriter-cursor" />
+            {/* Supporting Copy */}
+            <p style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '16.5px',
+              lineHeight: 1.8,
+              color: '#5C4E43',
+              maxWidth: '500px',
+              marginBottom: '32px',
+              fontWeight: 300
+            }}>
+              India’s pioneer in bespoke coachbuilding and turnkey fleet operations. Bringing solemn grace, state-protocol standards, and silent sanctuary luxury to final rites across Delhi NCR.
             </p>
 
             {/* Calls to Action */}
             <div style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '24px',
+              gap: '20px',
               flexWrap: 'wrap',
-              marginBottom: '32px'
+              marginBottom: '36px'
             }}>
-              {/* #5 Magnetic Primary CTA */}
+              {/* Magnetic Primary CTA */}
               <button
                 ref={magnetRef}
                 onClick={() => setActiveTab('vehicle')}
                 className="magnetic-btn"
                 onMouseMove={handleMagnet}
                 onMouseLeave={handleMagnetLeave}
-                style={{ backgroundColor: '#8B6914', color: '#2C1810', padding: '13px 30px', borderRadius: '30px', fontFamily: "'Inter', sans-serif", fontSize: '13px', letterSpacing: '0.08em', fontWeight: 600, textTransform: 'uppercase', border: '1px solid #8B6914', display: 'inline-flex', alignItems: 'center', gap: '8px', cursor: 'pointer', boxShadow: '0 6px 18px rgba(139, 105, 20, 0.2)' }}
+                style={{
+                  backgroundColor: '#8B6914',
+                  color: '#FDF8F0',
+                  padding: '14px 32px',
+                  borderRadius: '30px',
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: '13px',
+                  letterSpacing: '0.1em',
+                  fontWeight: 600,
+                  textTransform: 'uppercase',
+                  border: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  cursor: 'pointer',
+                  boxShadow: '0 10px 25px rgba(139, 105, 20, 0.28)',
+                  transition: 'all 0.3s ease'
+                }}
               >
                 <span>Explore the Vehicle</span>
-                <ArrowRight size={15} color="#2C1810" />
+                <ArrowRight size={16} color="#FDF8F0" />
               </button>
 
               {/* Secondary CTA */}
               <button
                 onClick={openConciergeModal}
                 style={{
-                  backgroundColor: 'transparent',
+                  backgroundColor: '#FFFFFF',
                   color: '#2C1810',
-                  padding: '12px 4px',
+                  padding: '13px 28px',
                   fontFamily: "'Inter', sans-serif",
                   fontSize: '13px',
                   letterSpacing: '0.08em',
                   fontWeight: 500,
                   textTransform: 'uppercase',
-                  border: 'none',
-                  borderBottom: '1px solid rgba(44, 24, 16, 0.35)',
-                  borderRadius: '0',
+                  border: '1px solid rgba(139, 105, 20, 0.35)',
+                  borderRadius: '30px',
+                  boxShadow: '0 6px 18px rgba(44, 24, 16, 0.04)',
                   cursor: 'pointer',
                   transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderBottomColor = '#8B6914';
+                  e.currentTarget.style.borderColor = '#8B6914';
                   e.currentTarget.style.color = '#8B6914';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderBottomColor = 'rgba(44, 24, 16, 0.35)';
+                  e.currentTarget.style.borderColor = 'rgba(139, 105, 20, 0.35)';
                   e.currentTarget.style.color = '#2C1810';
                 }}
               >
-                Discuss a Partnership
+                Discuss Partnership
               </button>
             </div>
 
-            {/* Subtle Trust Line */}
+            {/* Trust Metrics Bar */}
             <div style={{
-              fontSize: '10px',
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              color: '#7A6855',
-              fontWeight: 500,
-              opacity: 0.85
+              display: 'flex',
+              gap: '16px',
+              flexWrap: 'wrap',
+              paddingTop: '16px',
+              borderTop: '1px solid rgba(139, 105, 20, 0.18)'
             }}>
-              Designed in India · Institution Ready · Serving Delhi NCR
+              {[
+                '100% SLA Guarantee',
+                'Zero-Failure Uptime',
+                'Delhi NCR Exclusive'
+              ].map((badge, idx) => (
+                <div key={idx} style={{
+                  fontSize: '11px',
+                  letterSpacing: '0.08em',
+                  color: '#8B6914',
+                  fontWeight: 600,
+                  textTransform: 'uppercase',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px'
+                }}>
+                  <div style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: '#8B6914' }} />
+                  {badge}
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Right Column — #11 Ken Burns + #7 Parallax foreground */}
-          <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%' }}>
-            <div style={{ position: 'relative', width: '100%', borderRadius: '6px', overflow: 'hidden', boxShadow: '0 30px 70px -15px rgba(44, 24, 16, 0.15)', border: '1px solid rgba(139, 105, 20, 0.15)', backgroundColor: '#FFFFFF', transform: 'scale(1.04)', marginTop: `${scrollY * -0.08}px` }}>
-              <img src="/images/vehicle_view_front_34.png" alt="Eternal Repos Purpose-Built Ceremonial Hearse" className="ken-burns"
-                style={{ width: '100%', height: 'auto', maxHeight: '660px', objectFit: 'cover', display: 'block' }} />
+          {/* Right Column — Showcase Frame with Floating Badge */}
+          <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
+            <div style={{
+              position: 'relative',
+              width: '100%',
+              borderRadius: '20px',
+              overflow: 'hidden',
+              boxShadow: '0 35px 80px -15px rgba(44, 24, 16, 0.2)',
+              border: '1px solid rgba(212, 175, 55, 0.4)',
+              backgroundColor: '#FFFFFF'
+            }}>
+              <img
+                src="/images/vehicle_view_front_34.png"
+                alt="Eternal Repos Purpose-Built Ceremonial Hearse"
+                className="ken-burns"
+                style={{ width: '100%', height: 'auto', maxHeight: '620px', objectFit: 'cover', display: 'block' }}
+              />
+
+              {/* Floating Metallic Card Badge */}
+              <div style={{
+                position: 'absolute',
+                bottom: '24px',
+                left: '24px',
+                backgroundColor: 'rgba(44, 24, 16, 0.88)',
+                backdropFilter: 'blur(12px)',
+                padding: '14px 22px',
+                borderRadius: '14px',
+                border: '1px solid rgba(212, 175, 55, 0.4)',
+                boxShadow: '0 12px 30px rgba(0, 0, 0, 0.4)',
+                color: '#FDF8F0'
+              }}>
+                <div style={{ fontSize: '10px', letterSpacing: '0.2em', color: '#D4AF37', textTransform: 'uppercase', fontWeight: 700, marginBottom: '2px' }}>
+                  STATE-PROTOCOL APPROVED
+                </div>
+                <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '20px', fontWeight: 500 }}>
+                  Ceremonial Sanctuary Fleet
+                </div>
+              </div>
             </div>
           </div>
 
