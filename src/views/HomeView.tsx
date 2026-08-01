@@ -7,18 +7,6 @@ interface HomeViewProps {
   openBrochureModal: () => void;
 }
 
-// #16 Split letters helper
-const SplitLetters: React.FC<{ text: string; baseDelay?: number }> = ({ text, baseDelay = 0 }) => (
-  <>
-    {text.split('').map((ch, i) => (
-      <span key={i} className="split-letter" style={{ animationDelay: `${baseDelay + i * 0.04}s` }}>
-        {ch === ' ' ? '\u00A0' : ch}
-      </span>
-    ))}
-  </>
-);
-
-const MORPH_WORDS = ['Dignity.', 'Grace.', 'Reverence.', 'Honour.'];
 const TYPEWRITER_PHRASES = [
   'From Transport to Tribute.',
   "India's Premier Ceremonial Hearse.",
@@ -26,16 +14,6 @@ const TYPEWRITER_PHRASES = [
 ];
 
 export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeModal }) => {
-  // #20 Morphing text
-  const [morphIdx, setMorphIdx] = useState(0);
-  const [morphClass, setMorphClass] = useState('morph-word-in');
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setMorphClass('morph-word-out');
-      setTimeout(() => { setMorphIdx(i => (i + 1) % MORPH_WORDS.length); setMorphClass('morph-word-in'); }, 450);
-    }, 2800);
-    return () => clearInterval(interval);
-  }, []);
 
   // #17 Typewriter
   const [typeText, setTypeText] = useState('');
