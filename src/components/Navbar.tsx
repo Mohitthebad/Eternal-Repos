@@ -163,7 +163,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, openCon
               })}
             </nav>
 
-            {/* Join Us CTA Button */}
+            {/* Compact Primary CTA Button */}
             <button
               onClick={openConciergeModal}
               className="desktop-nav"
@@ -171,15 +171,15 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, openCon
                 backgroundColor: '#2C1810',
                 color: '#FDF8F0',
                 border: '1px solid #8B6914',
-                padding: '8px 18px',
+                padding: '9px 20px',
                 borderRadius: '24px',
-                fontSize: '12px',
+                fontSize: '11.5px',
                 fontWeight: 600,
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
-                boxShadow: '0 2px 10px rgba(139, 105, 20, 0.2)',
+                boxShadow: '0 4px 14px rgba(139, 105, 20, 0.2)',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px'
@@ -193,8 +193,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, openCon
                 e.currentTarget.style.color = '#FDF8F0';
               }}
             >
-              <Sparkles size={13} style={{ color: '#D4AF37' }} />
-              Join Us
+              Request a Demonstration
             </button>
 
             {/* Mobile Menu Toggle */}
