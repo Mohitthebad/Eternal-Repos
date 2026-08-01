@@ -312,22 +312,33 @@ export const HomeView: React.FC<HomeViewProps> = ({ setActiveTab, openConciergeM
               overflow: 'hidden',
               boxShadow: '0 35px 80px -15px rgba(44, 24, 16, 0.18)',
               border: '1px solid rgba(212, 175, 55, 0.35)',
-              backgroundColor: '#FFFFFF'
+              background: 'linear-gradient(180deg, #FAF5EE 0%, #F0E5D4 100%)',
+              padding: '24px 20px 0'
             }}>
               <img
-                src="/images/eternal_hearse_light_theme.png"
-                alt="Eternal Repos Purpose-Built Ceremonial Hearse"
-                style={{ width: '100%', height: 'auto', maxHeight: '560px', objectFit: 'cover', display: 'block' }}
+                src="/images/vehicle_view_front_34.png"
+                alt="Eternal Repos Purpose-Built Ceremonial Truck"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  maxHeight: '520px',
+                  objectFit: 'contain',
+                  display: 'block',
+                  margin: '0 auto',
+                  filter: 'drop-shadow(0 20px 30px rgba(44, 24, 16, 0.15))'
+                }}
               />
 
               {/* Bottom Gold Accent Bar */}
               <div style={{
-                padding: '16px 28px',
+                padding: '16px 24px',
                 backgroundColor: '#2C1810',
                 color: '#FDF8F0',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'space-between'
+                justifyContent: 'space-between',
+                margin: '16px -20px 0',
+                borderTop: '1px solid rgba(212, 175, 55, 0.4)'
               }}>
                 <div>
                   <span style={{ fontSize: '10px', letterSpacing: '0.2em', color: '#D4AF37', textTransform: 'uppercase', fontWeight: 700, display: 'block' }}>
